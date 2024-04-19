@@ -67,7 +67,8 @@
               "browserTarget": "DMFL:build:production"
             },
             "development": {
-              "browserTarget": "DMFL:build:development"
+              "browserTarget": "DMFL:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

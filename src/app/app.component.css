@@ -1,0 +1,40 @@
+/* AppComponent's private CSS styles */
+body {
+  background: #d9d9d9;
+}
+
+h1 {
+  margin-bottom: 0;
+  text-align: center;
+}
+nav a {
+  text-decoration: none;
+  text-align: center;
+  margin-top: 10px;
+  display: inline-block;
+  width: 25%;
+  background-color: #e8e8e8;
+  color: #3d3d3d;
+  border-radius: 8px;
+}
+
+a.login {
+  position: absolute;
+  right:    0;
+  bottom:   0;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  width: 25%;
+  background-color: #e8e8e8;
+  color: #3d3d3d;
+  border-radius: 8px;
+}
+
+nav a:hover, a:hover {
+  color: white;
+  background-color: #42545C;
+}
+nav a:active {
+  background-color: black;
+}

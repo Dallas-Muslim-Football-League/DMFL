@@ -1,0 +1,6 @@
+{
+    "/api/*": {
+    "target": "https://backend.d-mfl.com/api/",
+    "secure": false
+    }
+}
