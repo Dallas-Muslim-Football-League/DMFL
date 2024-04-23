@@ -3,13 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Team } from '../../../models/team';
 import { TeamService } from '../../../services/team.service';
-import { Roster } from '../../../models/roster';
-import { Player } from '../../../models/player';
 
 @Component({
   selector: 'app-team-detail',
   templateUrl: './team-detail.component.html',
-  styleUrls: ['./team-detail.component.css']
+  styleUrls: ['./team-detail.component.css'],
 })
 export class TeamDetailComponent implements OnInit {
 

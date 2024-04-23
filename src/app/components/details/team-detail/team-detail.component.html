@@ -3,21 +3,19 @@
     <div *ngIf="team.players">
 
       <div>Roster</div>
-      <table>
+      <table class="styled-table">
         <thead>
             <tr>
                 <th>Name</th>
                 <th>Number</th>
                 <th>Positions</th>
-                <th>Captain</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let player of team.players">
-                <td>{{player.name}}</td>
+            <tr *ngFor="let player of team.players | orderBy: 'lastName'">
+                <td>{{player.lastName}}, {{player.firstName}} <span *ngIf="player.captain">[C]</span></td>
                 <td>{{player.number}}</td>
                 <td>{{player.positions}}</td>
-                <td>{{player.captain}}</td>
             </tr>
         </tbody>
     </table>

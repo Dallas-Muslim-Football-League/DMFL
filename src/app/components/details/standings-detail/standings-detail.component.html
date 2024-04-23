@@ -1,10 +1,10 @@
 <div class="center">
     <h2>League Standings</h2>
-    <table>
+    <table class="styled-table">
         <thead>
             <tr>
-            <th>Rank</th>
-            <th id="teamname">Team Name</th>
+            <th>POS</th>
+            <th>TEAM</th>
             <th>W</th>
             <th>L</th>
             <th>PCT</th>
@@ -15,7 +15,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let standing of standings;let indexOfelement=index;">
+            <tr class="active-row" *ngFor="let standing of standings;let indexOfelement=index;">
                 <td>{{indexOfelement + 1}}</td>
                 <td>{{standing.teamName}}</td>
                 <td>{{standing.wins}}</td>

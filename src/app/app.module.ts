@@ -14,6 +14,7 @@ import { RosterDetailComponent } from './components/details/roster-detail/roster
 import { ScheduleDetailComponent } from './components/details/schedule-detail/schedule-detail.component';
 import { StandingsDetailComponent } from './components/details/standings-detail/standings-detail.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
+import { OrderByPipe } from 'src/app/order-by.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
     RosterDetailComponent,
     ScheduleDetailComponent,
     StandingsDetailComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,

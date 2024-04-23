@@ -4,6 +4,10 @@ h2 {
     text-align: center;
 }
 
+/* img {
+    max-width: 100px;
+} */
+
 .teams-menu {
     padding: 0;
     margin: auto;
@@ -19,7 +23,11 @@ h2 {
 }
 
 a {
-    background-color: #3f525c;
+    background-color: #0c6f2d;
+    /* background-image:  url('../../../free-palestine.png');
+    background-blend-mode: screen;
+    background-position: left;
+    background-size: cover; */
     border-radius: 2px;
     padding: 1rem;
     font-size: 1.2rem;
@@ -40,7 +48,8 @@ a {
 
 @media (min-width: 600px) {
     a {
-        width: 18%;
+        width: 30%;
+        height: 30%;
         box-sizing: content-box;
     }
 }
