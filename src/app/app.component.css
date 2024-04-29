@@ -95,12 +95,9 @@ nav a:active {
 .social-media-container a {
   margin: 5px;
   text-decoration: none;
+  color: rgb(41, 41, 41);
 }
 
 .social-media-container a:hover {
   color: rgb(220, 15, 15);
 }
-
-/* .social-media-container a:active {
-  background-color: black;
-} */

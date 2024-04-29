@@ -1,6 +1,6 @@
 <div class="center" *ngIf="team">
     <h2>{{team.name}}</h2>
-    <div *ngIf="team.players">
+    <div *ngIf="team.roster.players">
 
       <div>Roster</div>
       <table class="styled-table">
@@ -12,8 +12,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let player of team.players | orderBy: 'lastName'">
-                <td>{{player.lastName}}, {{player.firstName}} <span *ngIf="player.captain">[C]</span></td>
+            <tr *ngFor="let player of team.roster.players| orderBy: 'lastName'">
+                <td>
+                    <img *ngIf="player.captain" class="captain" src="../../../../assets/dmfl-captain-badge.png" alt="a logong ">
+                    {{player.lastName}}, {{player.firstName}}
+                </td>
                 <td>{{player.number}}</td>
                 <td>{{player.positions}}</td>
             </tr>
