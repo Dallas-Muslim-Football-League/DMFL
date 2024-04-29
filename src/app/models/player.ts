@@ -1,8 +1,11 @@
+import { Statistics } from "./statistics"
+
 export interface Player {
-    pId: string,
+    playerId: string,
     number: number,
     firstName: string,
     lastName: string,
-    positions: Array<string>,
     captain: boolean
+    positions: Array<string>,
+    playerStats: Statistics;
 }

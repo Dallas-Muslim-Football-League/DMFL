@@ -6,15 +6,16 @@ import { TeamDetailComponent } from './components/details/team-detail/team-detai
 import { StandingsDetailComponent } from './components/details/standings-detail/standings-detail.component';
 import { ScheduleDetailComponent } from './components/details/schedule-detail/schedule-detail.component';
 import { LeagueNewsComponent } from './components/league-news/league-news.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   { path: 'dashboard', component: DashboardComponent},
   { path: 'teams', component: TeamsComponent },
-  { path: 'detail/:name', component: TeamDetailComponent},
+  { path: 'game/:gameId/details', component: TeamDetailComponent},
   { path: 'standings', component: StandingsDetailComponent},
   { path: 'schedule', component: ScheduleDetailComponent},
-  { path: 'news', component: LeagueNewsComponent}
+  { path: 'stats', component: StatisticsComponent}
 ];
 
 @NgModule({

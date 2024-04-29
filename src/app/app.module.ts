@@ -15,6 +15,7 @@ import { ScheduleDetailComponent } from './components/details/schedule-detail/sc
 import { StandingsDetailComponent } from './components/details/standings-detail/standings-detail.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { OrderByPipe } from 'src/app/order-by.pipe';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { OrderByPipe } from 'src/app/order-by.pipe';
     ScheduleDetailComponent,
     StandingsDetailComponent,
     ScheduleComponent,
-    OrderByPipe
+    OrderByPipe,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,

@@ -4,9 +4,15 @@ h2 {
     text-align: center;
 }
 
-/* img {
+img {
     max-width: 100px;
-} */
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 50%;
+}
 
 .teams-menu {
     padding: 0;
@@ -23,18 +29,20 @@ h2 {
 }
 
 a {
-    background-color: #0c6f2d;
+    background-color: #8a8a8a;
+    box-shadow: 5px 5px 5px rgb(168, 168, 168);
     /* background-image:  url('../../../free-palestine.png');
-    background-blend-mode: screen;
+    background-blend-mode: lighten;
     background-position: left;
-    background-size: cover; */
+    background-size: 500px; */
     border-radius: 2px;
     padding: 1rem;
     font-size: 1.2rem;
     text-decoration: none;
-    display: inline-block;
-    color: #fff;
+    display: flex;
+    align-items: center;
     text-align: center;
+    color: #000000;
     width: 100%;
     min-width: 70px;
     margin: .5rem auto;
@@ -46,6 +54,10 @@ a {
     align-self: auto;
 }
 
+.name {
+    margin: auto;
+}
+
 @media (min-width: 600px) {
     a {
         width: 30%;
@@ -55,5 +67,5 @@ a {
 }
 
 a:hover {
-    background-color: #000;
+    outline: auto;
 }

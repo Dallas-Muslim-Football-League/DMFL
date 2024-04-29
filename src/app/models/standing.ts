@@ -6,5 +6,5 @@ export interface Standing {
     pointsFor: Number,
     pointsAgainst: Number,
     pointDifferential: Number,
-    streak: String
+    streak: String;
 }
