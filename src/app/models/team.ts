@@ -6,6 +6,6 @@ export interface Team {
     teamId: string,
     name: string;
     isActive: boolean,
-    roster: Roster,
-    teamStats: Statistics;
+    rosterMap: Map<string, Roster>,
+    teamStats: Map<string, Statistics>;
 }

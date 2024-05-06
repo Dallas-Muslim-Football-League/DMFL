@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Team } from '../../../models/team';
 import { TeamService } from '../../../services/team.service';
+import { Roster } from 'src/app/models/roster';
 
 @Component({
   selector: 'app-team-detail',
@@ -12,6 +13,7 @@ import { TeamService } from '../../../services/team.service';
 export class TeamDetailComponent implements OnInit {
 
   team: Team | undefined;
+  roster: Roster | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,9 +26,13 @@ export class TeamDetailComponent implements OnInit {
   }
 
   getTeam(): void {
-    const name = String(this.route.snapshot.paramMap.get('name'));
-    this.teamService.getTeam(name)
-      .subscribe(team => this.team = team)
+    const teamId = String(this.route.snapshot.paramMap.get('teamId'));
+    this.teamService.getTeam(teamId)
+      .subscribe(team => {
+        this.team = team
+        this.team.rosterMap = new Map(Object.entries(this.team.rosterMap))
+        this.roster = team.rosterMap.get('spr-2024')
+      })
   }
 
   goBack(): void {

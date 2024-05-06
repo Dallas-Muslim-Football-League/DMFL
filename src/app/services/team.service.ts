@@ -31,14 +31,14 @@ export class TeamService {
   };
 
   getTeamsUrl(): Observable<Team[]> {
-    return this.http.get<Team[]>(this.url, this.httpOptions)
+    return this.http.get<Team[]>(this.url + '/current', this.httpOptions)
     .pipe(retry(1), catchError(this.handleError));
   }
 
   // HttpClient API get() method => Fetch employee
-  getTeam(name: string): Observable<Team> {
+  getTeam(teamId: string): Observable<Team> {
     return this.http
-      .get<Team>(this.url + '/' + name)
+      .get<Team>(this.url + '/' + teamId)
       .pipe(retry(1), catchError(this.handleError));
   }
 
