@@ -1,6 +1,6 @@
 <div class="center" *ngIf="schedules">
     <select [(ngModel)]="selectedSchedule" (ngModelChange)="assignWeekToView($event)">
-        <option *ngFor="let schedule of schedules" [ngValue]="schedule">{{schedule.week}}</option>
+        <option *ngFor="let schedule of schedules | orderBy: 'week'" [ngValue]="schedule">{{schedule.week}}</option>
     </select>
     <table>
         <thead>
@@ -11,11 +11,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let game of selectedSchedule.games" routerLink="/detail/{{game.gameId}}">
+            <tr *ngFor="let game of selectedSchedule.games" routerLink="/detail/{{game.name}}">
                 <td>{{game.time}}</td>
-                <td>{{game.homeTeam}} vs {{game.awayTeam}}</td>
-                <td *ngIf="game.homeScore != 0">{{game.homeScore}} - {{game.awayScore}}</td>
-                <td *ngIf="game.homeScore === 0"></td>
+                <td>{{game.name}}</td>
+                <td *ngIf="game.homeScore != 0 || game.awayScore != 0">{{game.homeScore}} - {{game.awayScore}}</td>
+                <td *ngIf="game.homeScore === 0 && game.awayScore === 0"></td>
             </tr>
         </tbody>
     </table>
