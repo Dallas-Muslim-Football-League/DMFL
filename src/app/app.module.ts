@@ -11,7 +11,6 @@ import { RostersComponent } from './components/rosters/rosters.component';
 import { TeamDetailComponent } from './components/details/team-detail/team-detail.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RosterDetailComponent } from './components/details/roster-detail/roster-detail.component';
-import { ScheduleDetailComponent } from './components/details/schedule-detail/schedule-detail.component';
 import { StandingsDetailComponent } from './components/details/standings-detail/standings-detail.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { OrderByPipe } from 'src/app/order-by.pipe';
@@ -26,7 +25,6 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
     TeamDetailComponent,
     DashboardComponent,
     RosterDetailComponent,
-    ScheduleDetailComponent,
     StandingsDetailComponent,
     ScheduleComponent,
     OrderByPipe,

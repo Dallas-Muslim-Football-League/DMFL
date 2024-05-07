@@ -14,7 +14,7 @@
         <tbody>
             <tr *ngFor="let player of roster.players| orderBy: 'lastName'">
                 <td>
-                    <img *ngIf="player.captain" class="captain" src="../../../../assets/dmfl-captain-badge.png" alt="a logong ">
+                    <img *ngIf="player.captain" class="captain" src="../../../../assets/dmfl-captain-badge.png" alt="cptbg">
                     {{player.lastName}}, {{player.firstName}}
                 </td>
                 <td>{{player.number}}</td>

@@ -1,4 +1,3 @@
-import { Player } from "./player";
 import { Roster } from "./roster";
 import { Statistics } from "./statistics";
 
