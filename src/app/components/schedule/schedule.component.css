@@ -1,0 +1,58 @@
+h2 {
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+.center {
+    margin: auto;
+    margin-top: 25px;
+    padding: 8px;
+    padding-top: 0%;
+    text-align: center;
+}
+
+select {
+    left: auto;
+}
+
+table {
+    margin: auto;
+    border-collapse:separate;
+    border-spacing:0 20px;
+    width: fit-content;
+}
+
+td {
+    padding: 20px;
+}
+
+td:first-child {
+    border-top-left-radius: 10px; 
+    border-bottom-left-radius: 10px;
+}
+td:last-child {
+    border-bottom-right-radius: 10px; 
+    border-top-right-radius: 10px; 
+}
+
+tbody tr {
+    background: #ebeaea;
+}
+
+tbody tr:hover {
+    padding: 20px;
+    background: #dedede;
+    cursor: pointer;
+}
+
+#time {
+    width: 25%;
+}
+
+#matchup {
+    width: 50%;
+}
+
+#score {
+    width: 25%;
+}
