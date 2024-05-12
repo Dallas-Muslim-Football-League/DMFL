@@ -46,15 +46,6 @@ export class ScheduleComponent implements OnInit {
     });
   }
 
-  // getSchedules(): void {
-  //   this.scheduleService.getSchedule()
-  //     .subscribe(schedules => {
-  //       console.log(schedules)
-  //       this.schedules = schedules
-  //       this.setCurrent()
-  //     })
-  // }
-
   setCurrent1() {
     for(var schedule of this.schedules) {
       console.log(schedule)
@@ -90,11 +81,6 @@ export class ScheduleComponent implements OnInit {
     return scheduleList[scheduleList.length - 1]
   }
 
-  assignWeekToView(selectedSchedule: Schedule) {
-    console.log(selectedSchedule)
-    console.log(this.schedules)
-  }
-
   getGames(selectedSchedule: Schedule) {
     console.log('This season: ', selectedSchedule)
     console.log('This map: ', this.seasonMap)
@@ -122,7 +108,6 @@ export class ScheduleComponent implements OnInit {
 
     if(season == 'PostSeason') {
       this.schedules = this.postSeasonSchedules
-      //this.selectedSchedule = this.schedules[0]
       console.log(this.schedules)
       console.log(this.postSeasonSchedules)
     }
