@@ -1,5 +1,8 @@
 <div class="center" *ngIf="schedules">
-    <select [(ngModel)]="selectedSchedule" (ngModelChange)="assignWeekToView($event)">
+    <select [(ngModel)]="selectedMapKey" (ngModelChange)="getSeason($event)">
+        <option *ngFor="let season of seasonMap | keyvalue" [ngValue]="season.key">{{season.key}}</option>
+    </select>
+    <select [(ngModel)]="selectedSchedule">
         <option *ngFor="let schedule of schedules | orderBy: 'week'" [ngValue]="schedule">{{schedule.week}}</option>
     </select>
     <div *ngIf="selectedSchedule">

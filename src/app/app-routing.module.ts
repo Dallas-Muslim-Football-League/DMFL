@@ -4,8 +4,8 @@ import { TeamsComponent } from './components/teams/teams.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TeamDetailComponent } from './components/details/team-detail/team-detail.component';
 import { StandingsDetailComponent } from './components/details/standings-detail/standings-detail.component';
-import { ScheduleDetailComponent } from './components/details/schedule-detail/schedule-detail.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { ScheduleComponent } from './components/schedule/schedule.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'teams', component: TeamsComponent },
   { path: 'detail/:name', component: TeamDetailComponent},
   { path: 'standings', component: StandingsDetailComponent},
-  { path: 'schedule', component: ScheduleDetailComponent},
+  { path: 'schedule', component: ScheduleComponent},
   { path: 'stats', component: StatisticsComponent}
 ];
 
