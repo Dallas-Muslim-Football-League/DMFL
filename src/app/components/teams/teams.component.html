@@ -1,8 +1,9 @@
-<h2>TEAMS</h2>
-<ul class="teams">
-  <li *ngFor="let team of teams">
-    <a routerLink="/detail/{{team.name}}">
-      <span class="badge">{{team.name}}</span> {{team.name}}
-    </a>
-  </li>
-</ul>
+<h2>Teams</h2>
+<div class="teams-menu">
+  <a *ngFor="let team of teams" routerLink="/detail/{{team.name}}">
+    <!-- <img src="../../../free-palestine.png" alt="logo"> -->
+    <span class="name">
+      {{team.name}}
+    </span>
+  </a>
+</div>

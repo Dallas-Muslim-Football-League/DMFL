@@ -8,18 +8,24 @@ import { TeamService } from '../../services/team.service';
   styleUrls: ['./teams.component.css']
 })
 export class TeamsComponent implements OnInit {
+  teams: any = [];
 
-  teams: Team[] = [];
+  constructor(private teamService: TeamService) { }
+
+  ngOnInit(): void {
+    this.getTeams();
+  }
+
+  // Get teams list
+  loadTeams() {
+    return this.teamService.getTeamsUrl().subscribe((data: {}) => {
+      this.teams = data;
+    });
+  }
 
   getTeams(): void {
     this.teamService.getTeamsUrl()
       .subscribe(teams => this.teams = teams);
-  }
-
-  constructor(private teamService: TeamService) {}
-
-  ngOnInit(): void {
-    this.getTeams();
   }
 
 }

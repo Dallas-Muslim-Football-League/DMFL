@@ -10,11 +10,30 @@
               </div>
             </div>
             <a class="login" *ngIf="user === 'admin'" routerLink="/adminTools">Admin tools</a>
-            <nav>
-                <a routerLink="/dashboard">Dashboard</a>
-                <a routerLink="/standings">Standings</a>
-                <a routerLink="/stats">Stats</a>
-                <a routerLink="/schedule">Schedule</a>
+            <nav class="nav-menu">
+                <div class="menu-item">
+                    <a routerLink="/home">Home</a>
+                </div>
+                <div class="menu-item">
+                    <a routerLink="/teams">Teams</a>
+                </div>
+                <div class="menu-item">
+                    <a routerLink="/standings">Standings</a>
+                </div>
+                <div class="menu-item">
+                    <a routerLink="/stats">Stats</a>
+                    <div class="sub-menu">
+                        <div class="sub-menu-item">
+                            <a href="#">Team</a>
+                        </div>
+                        <div class="sub-menu-item">
+                            <a href="#">Player</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <a routerLink="/schedule">Schedule</a>
+                </div>
             </nav>
         </header>
         <router-outlet></router-outlet>
