@@ -29,8 +29,8 @@ export class ScheduleComponent implements OnInit {
       console.log('Schedules: ', schedules);
       this.allSchedules = schedules;
       this.schedules = schedules;
-      this.regularSeasonSchedules = schedules.filter(s => !s.isPlayoffs)
-      this.postSeasonSchedules = schedules.filter(s => s.isPlayoffs)
+      this.regularSeasonSchedules = schedules.filter(s => !s.playoff)
+      this.postSeasonSchedules = schedules.filter(s => s.playoff)
 
       console.log('Reg season: ', this.regularSeasonSchedules)
       console.log('Post: ', this.postSeasonSchedules)
@@ -85,13 +85,13 @@ export class ScheduleComponent implements OnInit {
     console.log('This season: ', selectedSchedule)
     console.log('This map: ', this.seasonMap)
 
-    if(!selectedSchedule.isPlayoffs) {
+    if(!selectedSchedule.playoff) {
       this.schedules = this.regularSeasonSchedules
       this.selectedSchedule = this.regularSeasonSchedules
       console.log(this.regularSeasonSchedules)
     }
 
-    if(selectedSchedule.isPlayoffs) {
+    if(selectedSchedule.playoff) {
       this.schedules = this.postSeasonSchedules
       this.selectedSchedule = this.postSeasonSchedules
       console.log(this.postSeasonSchedules)

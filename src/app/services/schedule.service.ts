@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ScheduleService {
 
-  private url = environment.backend_url + '/schedule'
+  private url = environment.backend_url + '/schedules'
 
   constructor(private http: HttpClient) { }
 

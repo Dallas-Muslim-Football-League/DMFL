@@ -36,9 +36,9 @@ export class TeamService {
   }
 
   // HttpClient API get() method => Fetch employee
-  getTeam(name: string): Observable<Team> {
+  getTeam(id: number): Observable<Team> {
     return this.http
-      .get<Team>(this.url + '/' + name)
+      .get<Team>(this.url + '/' + id)
       .pipe(retry(1), catchError(this.handleError));
   }
 
