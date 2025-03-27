@@ -1,0 +1,58 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section {
+    display: flex;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 15px;
+    box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+.section-image {
+    flex: 1;
+    overflow: hidden;
+    max-height: 400px;
+    padding: 10px;
+}
+
+.section-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Added box-shadow */
+}
+
+.section-text {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Reverse the order of elements in the second section */
+#section2 {
+    flex-direction: row-reverse;
+}
+
+.section-images-only {
+    display: flex;
+    justify-content: space-around;
+}
+
+.image-container {
+    text-align: center;
+}
+
+.image-container img {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
