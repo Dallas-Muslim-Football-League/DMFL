@@ -1,8 +1,8 @@
-import { AlphabeticallySortPipe } from './order-by.pipe';
+import { ToSortObjectAttributesAlphabeticallyPipe } from "./to-sort-object-attributes-alphabetically.pipe";
 
 describe('AlphabeticallySortPipe', () => {
   it('create an instance', () => {
-    const pipe = new AlphabeticallySortPipe();
+    const pipe = new ToSortObjectAttributesAlphabeticallyPipe();
     expect(pipe).toBeTruthy();
   });
 });
