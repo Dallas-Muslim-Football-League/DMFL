@@ -13,7 +13,7 @@ h1 {
     border: 1px solid #ccc;
     margin-bottom: 20px;
     padding: 15px;
-    box-sizing: border-box; /* Include padding in element's total width and height */
+    box-sizing: border-box;
 }
 
 .section-image {
@@ -28,7 +28,7 @@ h1 {
     height: auto;
     display: block;
     object-fit: contain;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Added box-shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .section-text {
@@ -36,7 +36,6 @@ h1 {
     padding: 20px;
 }
 
-/* Reverse the order of elements in the second section */
 #section2 {
     flex-direction: row-reverse;
 }
@@ -44,15 +43,37 @@ h1 {
 .section-images-only {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap; /* Allow wrapping for small screens */
 }
 
 .image-container {
     text-align: center;
+    margin-bottom: 20px; /* Add margin for spacing in portrait */
+    width: 45%; /* Adjust width for better spacing in portrait */
 }
 
 .image-container img {
-    width: 200px;
+    width: 100%; /* Make images responsive within their container */
     height: auto;
     display: block;
     margin-bottom: 10px;
+}
+
+/* Media query for portrait mode on phones */
+@media (max-width: 768px) {
+    .section {
+        flex-direction: column; /* Stack image and text vertically */
+    }
+
+    #section2 {
+        flex-direction: column; /* Stack image and text vertically in section2 */
+    }
+
+    .section-image {
+        max-height: none; /* Allow full height for images in portrait */
+    }
+
+    .section-text {
+        padding: 10px; /* Reduce padding for better fit on small screens */
+    }
 }
