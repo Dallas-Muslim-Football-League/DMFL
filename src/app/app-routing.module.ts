@@ -8,7 +8,7 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
   { path: 'teams', component: TeamsComponent },
   { path: 'detail/:id', component: TeamDetailComponent},
