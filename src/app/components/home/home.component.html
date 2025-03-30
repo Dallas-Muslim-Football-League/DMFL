@@ -40,21 +40,27 @@
     </div>
     
     <div id="section3" class="section-images-only">
+        <div class="gallery-title"><h2>Gallery</h2></div>
         <div class="image-container">
-            <img src="https://via.placeholder.com/200x150?text=Image+3A" alt="Image 3A">
+            <img src="../../../assets/2024-spring-champs.JPG" alt="Image 3A" (click)="openModal('../../../assets/2024-spring-champs.JPG')">
             <p>2024 Spring League Champions</p>
         </div>
         <div class="image-container">
-            <img src="https://via.placeholder.com/200x150?text=Image+3B" alt="Image 3B">
-            <p>2023 Spring League Champions</p>
+            <img src="../../../assets/2023-summer-champs.JPG" alt="Image 3B" (click)="openModal('../../../assets/2023-summer-champs.JPG')">
+            <p>2023 Summer League Champions</p>
         </div>
         <div class="image-container">
-            <img src="https://via.placeholder.com/200x150?text=Image+3C" alt="Image 3C">
+            <img src="https://via.placeholder.com/200x150?text=Image+3C" alt="Image 3C" (click)="openModal('https://via.placeholder.com/600x450?text=Image+3C')">
             <p>Image 3C Text</p>
         </div>
         <div class="image-container">
-            <img src="https://via.placeholder.com/200x150?text=Image+3D" alt="Image 3D">
+            <img src="https://via.placeholder.com/200x150?text=Image+3D" alt="Image 3D" (click)="openModal('https://via.placeholder.com/600x450?text=Image+3D')">
             <p>Image 3D Text</p>
         </div>
+    </div>
+
+    <div id="imageModal" class="modal" *ngIf="isModalOpen">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <img class="modal-content" [src]="modalImageSrc">
     </div>
 </body>

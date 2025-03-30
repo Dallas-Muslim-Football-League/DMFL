@@ -17,6 +17,7 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
 import { OrderByPipe } from 'src/app/order-by.pipe';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { HomeComponent } from './components/home/home.component';
+import { GameDetailsComponent } from './components/details/game-details/game-details.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HomeComponent } from './components/home/home.component';
     ScheduleComponent,
     OrderByPipe,
     StatisticsComponent,
-    HomeComponent
+    HomeComponent,
+    GameDetailsComponent
   ],
   imports: [
     BrowserModule,
