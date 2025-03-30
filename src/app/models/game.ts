@@ -1,7 +1,11 @@
+import { Team } from "./team";
+
 export interface Game {
-    name: string,
+    id: number,
+    homeTeam: Team,
+    awayTeam: Team
     homeScore: number,
     awayScore: number,
-    time: string,
+    date: Date,
     isPlayoff: boolean;
 }
