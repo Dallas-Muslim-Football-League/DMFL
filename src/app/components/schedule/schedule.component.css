@@ -36,12 +36,12 @@ td:last-child {
 }
 
 tbody tr {
-    background: #ebeaea;
+    background: #ffffff;
 }
 
 tbody tr:hover {
     padding: 20px;
-    background: #dedede;
+    background: #b0b0b0;
     cursor: pointer;
 }
 
