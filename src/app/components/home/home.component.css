@@ -1,5 +1,5 @@
 body {
-    font-family: sans-serif;
+    font-family: 'Roboto Condensed', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 20px;
 }
 
@@ -47,8 +47,6 @@ h1 {
 }
 
 .gallery-title { /* Added gallery-title style */
-    /* text-align: center;
-    width: 100%; */
     margin-bottom: 20px;
 }
 
@@ -58,12 +56,14 @@ h1 {
     text-align: center;
     vertical-align: top;
     margin-right: 10px;
-    flex-shrink: 0; /* Added flex-shrink: 0 */
+    flex-shrink: 0;
 }
 
 .image-container img {
     width: 100%;
     height: auto;
+    height: 150px; /* Added fixed height */
+    object-fit: cover; /* Added object-fit */
     display: block;
     margin-bottom: 5px;
     cursor: pointer;
