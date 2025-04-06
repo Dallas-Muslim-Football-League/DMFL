@@ -7,5 +7,6 @@ export interface Game {
     homeScore: number,
     awayScore: number,
     date: Date,
+    pointInGame: string,
     isPlayoff: boolean;
 }

@@ -12,7 +12,9 @@
         </thead>
         <tbody>
             <tr *ngFor="let game of selectedSchedule.games" routerLink="games/detail/{{game.id}}">
-                <td>{{game.date}}</td>
+                <!-- <td *ngIf="game.homeScore != 0 || game.awayScore != 0">{{game.pointInGame}}</td>> -->
+                <td *ngIf="game.homeScore != 0 || game.awayScore != 0">Final</td>>
+                <td *ngIf="(game.homeScore === 0 && game.awayScore === 0) && (game.pointInGame == null)">{{game.date}}</td>
                 <td>{{game.homeTeam.name}} vs {{game.awayTeam.name}}</td>
                 <td *ngIf="game.homeScore != 0 || game.awayScore != 0">{{game.homeScore}} - {{game.awayScore}}</td>
                 <td *ngIf="game.homeScore === 0 && game.awayScore === 0"></td>
