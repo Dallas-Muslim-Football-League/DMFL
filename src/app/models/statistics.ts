@@ -1,13 +1,20 @@
-export interface Statistics {
-    statsId: string,
-    year: string,
-    season: string,
-    numberOfPassTds: number,
-    numberOfRushTds: number,
-    numberOfReceptionTds: number,
-    numberOfThrownInterceptions: number,
-    numberOfSacks: number,
-    numberOfSafeties: number,
-    numberOfDefenseInterceptions: number,
-    numberOfDefenseTds: number;
+import { Game } from "./game";
+import { Player } from "./player";
+
+export interface Statistic {
+    id: number,
+    player: Player,
+    game: Game,
+    receptions: number,
+    receivingTouchdowns: number,
+    receivingYards: number,
+    passingTouchdowns: number,
+    passingYards: number,
+    interceptionsThrown: number,
+    rushingTouchdowns: number,
+    rushingYards: number;
+    defensiveTouchdowns: number,
+    defensiveInterceptions: number,
+    sacks: number,
+    safties: number
 }
