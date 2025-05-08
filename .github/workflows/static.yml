@@ -29,15 +29,38 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout repository
+        uses: actions/checkout@v4 # Using the latest version
+
+      # Setup Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Specify your Node.js version, e.g., '18', '20', 'lts/*'
+          cache: 'npm' # Enable caching for npm dependencies
+
+      # Install project dependencies using npm
+      - name: Install dependencies
+        run: npm install # This command will install dependencies defined in your package-lock.json or package.json
+
+      # Build the project using npm
+      # This command should generate your static files in the 'dist' directory
+      - name: Build project
+        run: npm run build # Replace 'build' with your actual build script name from package.json if different
+
+      # Configure GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
+      # Uploads the artifact from the 'dist' directory
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: './dist/dmfl'
+          # Path to the directory to upload
+          path: './dist' # Ensure this path matches your project's build output directory
+
+      # Deploys the uploaded artifact to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
