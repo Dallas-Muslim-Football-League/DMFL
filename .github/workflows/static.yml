@@ -57,7 +57,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Path to the folder to upload.
-          path: './dist/dmfl/browser'
+          path: './dist/dmfl'
 
       # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
