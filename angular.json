@@ -6,7 +6,7 @@
     "DMFL": {
       "projectType": "application",
       "schematics": {},
-      "root": "",
+      "root": "DMFL",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
