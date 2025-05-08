@@ -58,7 +58,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Path to the directory to upload
-          path: './dist' # Ensure this path matches your project's build output directory
+          path: './dist/dmfl' # Ensure this path matches your project's build output directory
 
       # Deploys the uploaded artifact to GitHub Pages
       - name: Deploy to GitHub Pages
