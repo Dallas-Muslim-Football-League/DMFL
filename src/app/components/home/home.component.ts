@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 export class HomeComponent implements OnInit {
   modalImageSrc: string = '';
   isModalOpen: boolean = false;
+  public imageSrc = environment.assetBasePath;
 
   constructor() { }
 
