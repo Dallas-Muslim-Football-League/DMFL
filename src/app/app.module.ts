@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -37,5 +37,5 @@ import { GameDetailsComponent } from './components/details/game-details/game-det
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
         AppRoutingModule,
-        FormsModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        FormsModule], providers: [provideHttpClient(withInterceptorsFromDi()), provideClientHydration(withEventReplay())] })
 export class AppModule { }
