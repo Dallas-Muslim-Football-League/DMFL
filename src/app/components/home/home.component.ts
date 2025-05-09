@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 export class HomeComponent implements OnInit {
   modalImageSrc: string = '';
   isModalOpen: boolean = false;
-  public imageSrc = environment.assetBasePath;
+  public imageDir = environment.assetBasePath;
 
   constructor() { }
 
@@ -17,8 +17,8 @@ export class HomeComponent implements OnInit {
   }
 
   openModal(imageSrc: string): void {
-    console.log('openModal called with:', imageSrc);
-    this.modalImageSrc = imageSrc;
+    console.log('openModal called with:', this.imageDir + imageSrc);
+    this.modalImageSrc = this.imageDir + imageSrc;
     this.isModalOpen = true;
     console.log('modalImageSrc:', this.modalImageSrc);
     console.log('isModalOpen:', this.isModalOpen);
