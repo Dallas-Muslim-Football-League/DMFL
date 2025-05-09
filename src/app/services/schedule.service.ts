@@ -21,8 +21,8 @@ export class ScheduleService {
   };
 
   getSchedule(): Observable<Schedule[]> {
-    return this.http.get<Schedule[]>(this.url, this.httpOptions)
-    .pipe(retry(1), catchError(this.handleError));
+    return this.http.get<Schedule[]>(this.url, this.httpOptions);
+    // .pipe(retry(1), catchError(this.handleError));
   }
 
   // Error handling

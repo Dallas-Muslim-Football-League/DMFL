@@ -31,8 +31,8 @@ export class TeamService {
   };
 
   getTeamsUrl(): Observable<Team[]> {
-    return this.http.get<Team[]>(this.url, this.httpOptions)
-    .pipe(retry(1), catchError(this.handleError));
+    return this.http.get<Team[]>(this.url, this.httpOptions);
+    // .pipe(retry(1), catchError(this.handleError));
   }
 
   // HttpClient API get() method => Fetch employee

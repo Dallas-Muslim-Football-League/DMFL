@@ -10,6 +10,7 @@ import { GameDetailsComponent } from './components/details/game-details/game-det
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
+  // { path: '**', redirectTo: '/home' },
   { path: 'home', component: HomeComponent},
   { path: 'teams', component: TeamsComponent },
   { path: 'teams/detail/:id', component: TeamDetailComponent},
