@@ -5,9 +5,10 @@ import { Team } from '../../../models/team';
 import { TeamService } from '../../../services/team.service';
 
 @Component({
-  selector: 'app-team-detail',
-  templateUrl: './team-detail.component.html',
-  styleUrls: ['./team-detail.component.css'],
+    selector: 'app-team-detail',
+    templateUrl: './team-detail.component.html',
+    styleUrls: ['./team-detail.component.css'],
+    standalone: false
 })
 export class TeamDetailComponent implements OnInit {
 

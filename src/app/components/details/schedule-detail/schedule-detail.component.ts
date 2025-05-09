@@ -3,9 +3,10 @@ import { Schedule } from 'src/app/models/schedule';
 import { ScheduleService } from 'src/app/services/schedule.service';
 
 @Component({
-  selector: 'app-schedule-detail',
-  templateUrl: './schedule-detail.component.html',
-  styleUrls: ['./schedule-detail.component.css']
+    selector: 'app-schedule-detail',
+    templateUrl: './schedule-detail.component.html',
+    styleUrls: ['./schedule-detail.component.css'],
+    standalone: false
 })
 export class ScheduleDetailComponent implements OnInit{
 
