@@ -1,10 +1,13 @@
+import { Team } from "./team";
+
 export interface Standing {
-    teamName: String,
+    id: number,
+    team: Team,
     wins: Number,
     losses: Number,
     winPercentage: Number,
     pointsFor: Number,
     pointsAgainst: Number,
-    pointDifferential: Number,
+    pointsDifferential: Number,
     streak: String;
 }

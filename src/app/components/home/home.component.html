@@ -3,7 +3,7 @@
 
     <div id="about" class="section">
         <div class="section-image">
-            <img src="../../../assets/home-background.jpg" alt="Image 1">
+            <img [src]="imageDir + '/home-background.jpg'" alt="Image 1">
         </div>
         <div class="section-text">
             <h1>About</h1>
@@ -15,7 +15,7 @@
 
     <div id="section2" class="section">
         <div class="section-image">
-            <img src="../../../assets/home-faith.jpg" alt="Image 2">
+            <img [src]="imageDir + '/home-faith.jpg'" alt="Image 2">
         </div>
         <div class="section-text">
             <h1>Leadership</h1>
@@ -45,19 +45,23 @@
     <div id="section3" class="section-images-only">
         <div class="gallery-title"><h2>Gallery</h2></div>
         <div class="image-container">
-            <img src="../../../assets/2024-spring-champs.JPG" alt="Image 3A" (click)="openModal('../../../assets/2024-spring-champs.JPG')">
+            <img [src]="imageDir + '/2025-spring-group.JPG'" alt="Image 3A" (click)="openModal('/2025-spring-group.JPG')">
+            <p>2025 Spring Group Photo</p>
+        </div>
+        <div class="image-container">
+            <img [src]="imageDir + '/2024-spring-champs.JPG'" alt="Image 3A" (click)="openModal('/2024-spring-champs.JPG')">
             <p>2024 Spring League Champions</p>
         </div>
         <div class="image-container">
-            <img src="../../../assets/2023-summer-champs.JPG" alt="Image 3B" (click)="openModal('../../../assets/2023-summer-champs.JPG')">
+            <img [src]="imageDir + '/2023-summer-champs.JPG'" alt="Image 3B" (click)="openModal('/2023-summer-champs.JPG')">
             <p>2023 Summer League Champions</p>
         </div>
         <div class="image-container">
-            <img src="../../../assets/free-palestine-2024.JPG" alt="Image 3C" (click)="openModal('../../../assets/free-palestine-2024.JPG')">
+            <img [src]="imageDir + '/free-palestine-2024.JPG'" alt="Image 3C" (click)="openModal('/free-palestine-2024.JPG')">
             <p>Free Palestine 2024</p>
         </div>
         <div class="image-container">
-            <img src="../../../assets/underdogs-2023.JPG" alt="Image 3D" (click)="openModal('../../../assets/underdogs-2023.JPG')">
+            <img [src]="imageDir + '/underdogs-2023.JPG'" alt="Image 3D" (click)="openModal('/underdogs-2023.JPG')">
             <p>The Underdogs 2023</p>
         </div>
     </div>

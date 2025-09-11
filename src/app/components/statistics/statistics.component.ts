@@ -3,9 +3,10 @@ import { StatisticService } from 'src/app/services/statistic.service';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-statistics',
-  templateUrl: './statistics.component.html',
-  styleUrls: ['./statistics.component.css']
+    selector: 'app-statistics',
+    templateUrl: './statistics.component.html',
+    styleUrls: ['./statistics.component.css'],
+    standalone: false
 })
 export class StatisticsComponent implements OnInit {
   stats: any;

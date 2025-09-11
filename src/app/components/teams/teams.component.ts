@@ -3,9 +3,10 @@ import { Team } from '../../models/team';
 import { TeamService } from '../../services/team.service';
 
 @Component({
-  selector: 'app-teams',
-  templateUrl: './teams.component.html',
-  styleUrls: ['./teams.component.css']
+    selector: 'app-teams',
+    templateUrl: './teams.component.html',
+    styleUrls: ['./teams.component.css'],
+    standalone: false
 })
 export class TeamsComponent implements OnInit {
   teams: any = [];

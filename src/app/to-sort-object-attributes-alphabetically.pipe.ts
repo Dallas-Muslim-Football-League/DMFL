@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'toSortObjectAttributesAlphabetically'
+    name: 'toSortObjectAttributesAlphabetically',
+    standalone: false
 })
 export class ToSortObjectAttributesAlphabeticallyPipe implements PipeTransform {
 

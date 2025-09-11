@@ -3,9 +3,10 @@ import { Location } from '@angular/common';
 import { StandingService } from 'src/app/services/standing.service';
 
 @Component({
-  selector: 'app-standings-detail',
-  templateUrl: './standings-detail.component.html',
-  styleUrls: ['./standings-detail.component.css']
+    selector: 'app-standings-detail',
+    templateUrl: './standings-detail.component.html',
+    styleUrls: ['./standings-detail.component.css'],
+    standalone: false
 })
 export class StandingsDetailComponent implements OnInit {
 

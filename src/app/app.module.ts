@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,30 +19,23 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
 import { HomeComponent } from './components/home/home.component';
 import { GameDetailsComponent } from './components/details/game-details/game-details.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    TeamsComponent,
-    PlayersComponent,
-    RostersComponent,
-    TeamDetailComponent,
-    DashboardComponent,
-    RosterDetailComponent,
-    ScheduleDetailComponent,
-    StandingsDetailComponent,
-    ScheduleComponent,
-    OrderByPipe,
-    StatisticsComponent,
-    HomeComponent,
-    GameDetailsComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        TeamsComponent,
+        PlayersComponent,
+        RostersComponent,
+        TeamDetailComponent,
+        DashboardComponent,
+        RosterDetailComponent,
+        ScheduleDetailComponent,
+        StandingsDetailComponent,
+        ScheduleComponent,
+        OrderByPipe,
+        StatisticsComponent,
+        HomeComponent,
+        GameDetailsComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        FormsModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
