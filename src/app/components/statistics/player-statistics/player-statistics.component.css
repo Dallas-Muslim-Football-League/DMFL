@@ -63,3 +63,35 @@ button[type="button"] {
 button[type="button"]:hover {
   background-color: #007f67;
 }
+
+@media (max-width: 1000px) {
+  .styled-table {
+    min-width: 100%;
+    font-size: 0.85rem;
+    overflow-x: auto;
+    display: block;
+    width: 100%;
+  }
+  .center {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .styled-table th,
+  .styled-table td {
+    padding: 8px 6px;
+    font-size: 0.75rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+  select {
+    font-size: 0.9rem;
+    padding: 0.4rem;
+  }
+  button[type="button"] {
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+  }
+}
