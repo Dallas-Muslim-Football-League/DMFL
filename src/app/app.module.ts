@@ -15,9 +15,10 @@ import { ScheduleDetailComponent } from './components/details/schedule-detail/sc
 import { StandingsDetailComponent } from './components/details/standings-detail/standings-detail.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { OrderByPipe } from 'src/app/order-by.pipe';
-import { StatisticsComponent } from './components/statistics/statistics.component';
 import { HomeComponent } from './components/home/home.component';
 import { GameDetailsComponent } from './components/details/game-details/game-details.component';
+import { PlayerStatisticsComponent } from './components/statistics/player-statistics/player-statistics.component';
+import { TeamStatisticsComponent } from './components/statistics/team-statistics/team-statistics.component';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -31,7 +32,8 @@ import { GameDetailsComponent } from './components/details/game-details/game-det
         StandingsDetailComponent,
         ScheduleComponent,
         OrderByPipe,
-        StatisticsComponent,
+        PlayerStatisticsComponent,
+        TeamStatisticsComponent,
         HomeComponent,
         GameDetailsComponent
     ],

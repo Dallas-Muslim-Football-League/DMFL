@@ -3,10 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { TeamsComponent } from './components/teams/teams.component';
 import { TeamDetailComponent } from './components/details/team-detail/team-detail.component';
 import { StandingsDetailComponent } from './components/details/standings-detail/standings-detail.component';
-import { StatisticsComponent } from './components/statistics/statistics.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { HomeComponent } from './components/home/home.component';
 import { GameDetailsComponent } from './components/details/game-details/game-details.component';
+import { PlayerStatisticsComponent } from './components/statistics/player-statistics/player-statistics.component';
+import { TeamStatisticsComponent } from './components/statistics/team-statistics/team-statistics.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -15,9 +16,9 @@ const routes: Routes = [
   { path: 'teams/detail/:id', component: TeamDetailComponent},
   { path: 'standings', component: StandingsDetailComponent},
   { path: 'schedule', component: ScheduleComponent},
-  { path: 'stats', component: StatisticsComponent},
-  { path: 'stats/player', component: StatisticsComponent},
-  { path: 'stats/team', component: StatisticsComponent},
+  // { path: 'stats', component: PlayerStatisticsComponent},
+  { path: 'stats/player', component: PlayerStatisticsComponent},
+  { path: 'stats/team', component: TeamStatisticsComponent},
   { path: 'schedule/games/detail/:id', component: GameDetailsComponent}
 ];
 

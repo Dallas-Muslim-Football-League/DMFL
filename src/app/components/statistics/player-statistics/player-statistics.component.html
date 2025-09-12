@@ -1,5 +1,10 @@
 <div class="center">
     <h2>League Stats</h2>
+    <select [(ngModel)]="selectedCategory" (change)="sortStats()">
+        <option value="passing">Passing</option>
+        <option value="receiving">Receiving</option>
+        <option value="defense">Defense</option>
+    </select>
     <table class="styled-table">
         <thead>
             <tr>
@@ -19,17 +24,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="active-row" *ngFor="let stat of stats;">
+            <tr class="active-row" *ngFor="let stat of playerStats;">
                 <td>{{stat.player.lastName}}, {{stat.player.firstName}}</td>
                 <td>{{stat.receptions}}</td>
                 <td>{{stat.receivingTouchdowns}}</td>
                 <td>{{stat.receivingYards}}</td>
-                <td>{{stat.passingTouchDowns}}</td>
+                <td>{{stat.passingTouchdowns}}</td>
                 <td>{{stat.passingYards}}</td>
                 <td>{{stat.interceptionsThrown}}</td>
-                <td>{{stat.rushingTouchDowns}}</td>
+                <td>{{stat.rushingTouchdowns}}</td>
                 <td>{{stat.rushingYards}}</td>
-                <td>{{stat.defensiveTouchDowns}}</td>
+                <td>{{stat.defensiveTouchdowns}}</td>
                 <td>{{stat.defensiveInterceptions}}</td>
                 <td>{{stat.sacks}}</td>
                 <td>{{stat.safeties}}</td>
