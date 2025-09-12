@@ -21,7 +21,10 @@ export class PlayerStatisticsComponent implements OnInit {
 
   getPlayerStatistics(): void {
     this.statsService.getPlayerStatistics()
-      .subscribe(playerStats => this.playerStats = playerStats);
+      .subscribe(playerStats => {
+        this.playerStats = playerStats;
+        this.sortStats(); // Ensure stats are sorted after data loads
+      });
   }
 
   sortStats() {
