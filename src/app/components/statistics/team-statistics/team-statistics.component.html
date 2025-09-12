@@ -1,0 +1,42 @@
+<div class="center">
+    <h2>League Stats</h2>
+    <table class="styled-table">
+        <thead>
+            <tr>
+            <th>Player</th>
+            <th>REC</th>
+            <th>REC TD</th>
+            <th>REC YDS</th>
+            <th>PAS TD</th>
+            <th>PAS YDS</th>
+            <th>INT THRN</th>
+            <th>RUSH TD</th>
+            <th>RUSH YDS</th>
+            <th>DEF TD</th>
+            <th>DEF INT</th>
+            <th>SACK</th>
+            <th>SFTY</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="active-row" *ngFor="let stat of teamStats;">
+                <!-- <td>{{stat.player.lastName}}, {{stat.player.firstName}}</td> -->
+                <td>{{stat.team.name}}</td>
+                <td>{{stat.receptions}}</td>
+                <td>{{stat.receivingTouchdowns}}</td>
+                <td>{{stat.receivingYards}}</td>
+                <td>{{stat.passingTouchdowns}}</td>
+                <td>{{stat.passingYards}}</td>
+                <td>{{stat.interceptionsThrown}}</td>
+                <td>{{stat.rushingTouchdowns}}</td>
+                <td>{{stat.rushingYards}}</td>
+                <td>{{stat.defensiveTouchdowns}}</td>
+                <td>{{stat.defensiveInterceptions}}</td>
+                <td>{{stat.sacks}}</td>
+                <td>{{stat.safeties}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<button type="button" (click)="goBack()">go back</button>
