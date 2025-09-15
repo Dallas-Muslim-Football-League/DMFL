@@ -1,20 +1,21 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-    name: 'orderBy',
-    standalone: false
+  name: 'orderBy',
+  standalone: false
 })
 export class OrderByPipe implements PipeTransform {
-  transform(array: any, field: string): any[] {
-    array.sort((a: any, b: any) => {
-      if (a[field] < b[field]) {
-        return -1;
-      } else if (a[field] > b[field]) {
-        return 1;
-      } else {
-        return 0;
+  transform(array: any, fields: string): any[] {
+    if (!Array.isArray(array) || !fields) return array;
+    const sortFields = fields.split(',').map(f => f.trim());
+    return array.slice().sort((a, b) => {
+      for (const field of sortFields) {
+        const aValue = field.split('.').reduce((obj, key) => obj && obj[key], a) ?? '';
+        const bValue = field.split('.').reduce((obj, key) => obj && obj[key], b) ?? '';
+        const compare = aValue.localeCompare(bValue);
+        if (compare !== 0) return compare;
       }
+      return 0;
     });
-    return array;
   }
 }

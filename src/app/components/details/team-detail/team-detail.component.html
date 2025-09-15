@@ -12,7 +12,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let membership of memberships | orderBy: 'player.lastName'">
+            <tr *ngFor="let membership of memberships | orderBy: 'player.lastName,player.firstName'">
                 <td>
                     <img *ngIf="membership.captain" class="captain" [src]="imageDir + '/dmfl-captain-badge.png'" alt="Captain badge">
                     {{membership.player.lastName}}, {{membership.player.firstName}}
