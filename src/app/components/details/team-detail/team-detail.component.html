@@ -1,6 +1,6 @@
 <div class="center" *ngIf="team">
     <h2>{{team.name}}</h2>
-    <div *ngIf="team.players">
+    <div *ngIf="memberships">
 
       <div>Roster</div>
       <table class="styled-table">
@@ -12,18 +12,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let player of team.players| orderBy: 'lastName'">
+            <tr *ngFor="let membership of memberships | orderBy: 'player.lastName'">
                 <td>
-                    <img *ngIf="player.captain" class="captain" [src]="imageDir + '/dmfl-captain-badge.png'" alt="a logong ">
-                    {{player.lastName}}, {{player.firstName}}
+                    <img *ngIf="membership.captain" class="captain" [src]="imageDir + '/dmfl-captain-badge.png'" alt="Captain badge">
+                    {{membership.player.lastName}}, {{membership.player.firstName}}
                 </td>
-                <td>{{player.number}}</td>
-                <td>{{player.positions}}</td>
+                <td>{{membership.player.number}}</td>
+                <td>{{membership.player.positions}}</td>
             </tr>
         </tbody>
-    </table>
+      </table>
     </div>
-  
 </div>
 
 <button type="button" (click)="goBack()">go back</button>

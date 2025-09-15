@@ -3,6 +3,5 @@ export interface Player {
     number: number,
     firstName: string,
     lastName: string,
-    positions: Array<string>,
-    captain: boolean;
+    positions: Array<string>
 }
