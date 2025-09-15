@@ -3,6 +3,7 @@ import { Team } from '../models/team';
 import { Observable, catchError, retry, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Membership } from '../models/membership';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,12 @@ export class TeamService {
   getTeam(id: number): Observable<Team> {
     return this.http
       .get<Team>(this.url + '/' + id)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  getTeamMemberships(id: number): Observable<Membership[]> {
+    return this.http
+      .get<Membership[]>(`${this.url}/${id}/memberships`)
       .pipe(retry(1), catchError(this.handleError));
   }
 

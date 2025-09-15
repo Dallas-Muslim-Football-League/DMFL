@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { Team } from '../../../models/team';
 import { TeamService } from '../../../services/team.service';
 import { environment } from 'src/environments/environment';
+import { Membership } from 'src/app/models/membership';
 
 @Component({
     selector: 'app-team-detail',
@@ -14,6 +15,7 @@ import { environment } from 'src/environments/environment';
 export class TeamDetailComponent implements OnInit {
 
   team: Team | undefined;
+  memberships: Membership[] | undefined;
   public imageDir = environment.assetBasePath;
 
   constructor(
@@ -24,12 +26,22 @@ export class TeamDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTeam();
+    this.getMemberships();
   }
 
   getTeam(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.teamService.getTeam(id)
       .subscribe(team => this.team = team)
+  }
+
+  getMemberships(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.teamService.getTeamMemberships(id)
+      .subscribe(memberships => {
+        console.log('Loaded memberships:', memberships); // Log memberships
+        this.memberships = memberships;
+      });
   }
 
   goBack(): void {
