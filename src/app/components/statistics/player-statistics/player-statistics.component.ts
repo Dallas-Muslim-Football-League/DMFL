@@ -10,7 +10,7 @@ import { PlayerStatistics } from 'src/app/models/player-statistics';
   standalone: false
 })
 export class PlayerStatisticsComponent implements OnInit {
-    playerStats: PlayerStatistics[] = [];
+  playerStats: PlayerStatistics[] = [];
   selectedCategory: string = 'passing';
 
   constructor(private statsService: StatisticService, private location: Location) { }

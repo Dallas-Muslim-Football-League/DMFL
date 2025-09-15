@@ -13,3 +13,12 @@ h2 {
     text-align: center;
     overflow: auto;
 }
+
+.button-row {
+  text-align: left;
+  width: 100%;
+}
+
+button[type="button"] {
+  margin-top: 24px;
+}
