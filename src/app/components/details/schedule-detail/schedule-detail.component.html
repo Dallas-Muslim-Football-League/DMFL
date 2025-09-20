@@ -15,22 +15,13 @@
                 <!-- <td *ngIf="game.homeScore != 0 || game.awayScore != 0">{{game.pointInGame}}</td>> -->
                 <td *ngIf="game.homeScore != 0 || game.awayScore != 0">Final</td>>
                 <td *ngIf="(game.homeScore === 0 && game.awayScore === 0)">{{game.date}}</td>
-                <td>{{game.homeTeam.name}} vs {{game.awayTeam.name}}</td>
+                <td *ngIf="(game.homeTeam === null && game.awayTeam === null); else matchupDetails">TBD VS TBD</td>
+                <ng-template #matchupDetails>
+                    <td>{{game.homeTeam.name}} vs {{game.awayTeam.name}}</td>
+                </ng-template>
                 <td *ngIf="game.homeScore != 0 || game.awayScore != 0">{{game.homeScore}} - {{game.awayScore}}</td>
                 <td *ngIf="game.homeScore === 0 && game.awayScore === 0"></td>
             </tr>
         </tbody>
     </table>
-        <!-- <table>
-            <tbody>
-                <tr *ngFor="let game of selectedSchedule.games">
-                    <a *ngFor="let schedule of schedules" routerLink="/detail/{{schedule}}">
-                        <td>{{game.time}}</td>
-                        <td>{{game.teamOne}} vs {{game.teamTwo}}</td>
-                        <td *ngIf="game.teamOneScore != ''">{{game.teamOneScore}} - {{game.teamTwoScore}}</td>
-                        <td *ngIf="game.teamOneScore === ''"></td>
-                    </a>
-                </tr>
-            </tbody>
-        </table> -->
 </div>
