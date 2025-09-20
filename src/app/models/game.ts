@@ -2,8 +2,8 @@ import { Team } from "./team";
 
 export interface Game {
     id: number,
-    homeTeam: Team,
-    awayTeam: Team
+    homeTeam: Team | null,
+    awayTeam: Team | null,
     homeScore: number,
     awayScore: number,
     date: Date,

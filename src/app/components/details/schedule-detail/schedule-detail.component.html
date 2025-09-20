@@ -15,9 +15,11 @@
                 <!-- <td *ngIf="game.homeScore != 0 || game.awayScore != 0">{{game.pointInGame}}</td>> -->
                 <td *ngIf="game.homeScore != 0 || game.awayScore != 0">Final</td>>
                 <td *ngIf="(game.homeScore === 0 && game.awayScore === 0)">{{game.date}}</td>
-                <td *ngIf="(game.homeTeam === null && game.awayTeam === null); else matchupDetails">TBD VS TBD</td>
-                <ng-template #matchupDetails>
-                    <td>{{game.homeTeam.name}} vs {{game.awayTeam.name}}</td>
+                <td *ngIf="(game.homeTeam != null && game.awayTeam != null); else flexMatchupDetails">
+                    {{game.homeTeam.name}} vs {{game.awayTeam.name}}
+                </td>
+                <ng-template #flexMatchupDetails>
+                    <td>TBD vs TBD</td>
                 </ng-template>
                 <td *ngIf="game.homeScore != 0 || game.awayScore != 0">{{game.homeScore}} - {{game.awayScore}}</td>
                 <td *ngIf="game.homeScore === 0 && game.awayScore === 0"></td>

@@ -27,15 +27,6 @@ export class ScheduleDetailComponent implements OnInit{
     });
   }
 
-  // getSchedules(): void {
-  //   this.scheduleService.getSchedule()
-  //     .subscribe(schedules => {
-  //       console.log(schedules)
-  //       this.schedules = schedules
-  //       this.setCurrent()
-  //     })
-  // }
-
   setCurrent() {
     for(var schedule of this.schedules) {
       console.log(schedule)
