@@ -4,5 +4,5 @@ import { Team } from './team';
 
 export interface TeamStatistics extends Statistic {
   team: Team,
-  game: Game
+  game: Game;
 }

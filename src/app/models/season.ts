@@ -10,7 +10,7 @@ export interface Season {
     endDate: Date,
     numberOfPlayoffWeeks: number,
     isCurrent: boolean,
-    teams: Array<Team>;
-    schedules: Array<Schedule>;
+    teams: Array<Team>,
+    schedules: Array<Schedule>,
     standings: Array<Standing>;
 }

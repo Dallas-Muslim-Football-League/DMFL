@@ -7,11 +7,11 @@ export interface Statistic {
     passingYards: number,
     interceptionsThrown: number,
     rushingTouchdowns: number,
-    rushingYards: number;
+    rushingYards: number,
     defensiveTouchdowns: number,
     defensiveInterceptions: number,
     flagPulls: number,
     passBreakups: number,
     sacks: number,
-    safeties: number
+    safeties: number;
 }

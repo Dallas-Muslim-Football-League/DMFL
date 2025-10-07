@@ -5,5 +5,5 @@ import { Statistic } from './statistics';
 export interface PlayerStatistics extends Statistic {
   player: Player,
   game: Game,
-  gamesPlayed: number
+  gamesPlayed: number;
 }
