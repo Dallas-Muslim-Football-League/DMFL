@@ -39,8 +39,7 @@
 }
 
 .nav-menu {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex; /* Changed from grid to flex for single row */
   width: 50%; /* Adjusted width for better right positioning */
   gap: 5px;
   margin-right: 20px; /* Space from right edge */
@@ -48,6 +47,71 @@
   padding: 0; /* Remove any default padding */
   margin-top: 0; /* Remove top margin */
   margin-bottom: 0; /* Remove bottom margin */
+}
+
+/* Mobile responsive design - Keep single horizontal line */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 8px 0;
+  }
+  
+  .nav-menu {
+    width: 65%; /* Slightly wider for better fit */
+    gap: 3px; /* Smaller gaps */
+    margin-right: 10px; /* Less margin */
+  }
+  
+  .menu-item {
+    padding: 1px; /* Reduced padding */
+    flex: 1; /* Equal width for all items */
+    min-width: 0; /* Allow shrinking */
+  }
+  
+  .menu-item a {
+    padding: 3px 2px; /* Smaller text padding */
+    font-size: 0.75rem; /* Smaller font */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add ... for long text */
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-menu {
+    width: 70%;
+    gap: 2px;
+  }
+  
+  .menu-item a {
+    padding: 2px 1px;
+    font-size: 0.65rem; /* Even smaller font */
+  }
+  
+  .logo {
+    max-width: 40px; /* Smaller logo on mobile */
+    max-height: 40px;
+    margin-left: 10px; /* Less margin */
+  }
+}
+
+/* Extra small screens - minimal layout */
+@media (max-width: 360px) {
+  .nav-menu {
+    width: 75%;
+    gap: 1px;
+  }
+  
+  .menu-item a {
+    padding: 1px;
+    font-size: 0.6rem;
+  }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .nav-menu {
+    width: 55%;
+  }
 }
 
 .menu-item {
@@ -101,12 +165,20 @@ a.login {
   background-color: rgba(255, 255, 255, 0.938);
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
   z-index: 1;
-  min-width: 180px;
+  min-width: 160px; /* Reduced width for mobile */
   left: 50%;
   transform: translateX(-50%);
   top: 100%;
   border-radius: 8px;
   margin-top: 2px;
+}
+
+/* Mobile sub-menu adjustments */
+@media (max-width: 768px) {
+  .sub-menu {
+    min-width: 120px; /* Even smaller on mobile */
+    font-size: 0.75rem;
+  }
 }
 
 .sub-menu-item {
