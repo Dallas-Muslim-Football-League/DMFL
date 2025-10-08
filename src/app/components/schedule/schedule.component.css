@@ -18,12 +18,15 @@ select {
     background-color: #ffffff;
     border: 2px solid #2c3e50;
     border-radius: 8px;
-    padding: 8px 12px;
+    padding: 6px 10px; /* Reduced padding */
     font-size: 14px;
     font-family: 'Roboto Condensed', sans-serif;
     cursor: pointer;
     transition: all 0.3s ease;
-    min-width: 200px;
+    min-width: 150px; /* Reduced from 200px */
+    width: 100%;
+    text-align: center; /* Center the text */
+    text-align-last: center; /* Center the selected option text */
 }
 
 select:hover {
@@ -43,7 +46,8 @@ select:focus {
 select option {
     background-color: #ffffff;
     color: #2c3e50;
-    padding: 8px;
+    padding: 6px; /* Reduced padding */
+    text-align: center; /* Center option text */
 }
 
 select option:hover {
@@ -114,18 +118,60 @@ tbody tr:hover td {
     font-size: 16px;
 }
 
-/* Dropdown container styling */
+/* Improved dropdown container styling with smaller gaps */
 .dropdown-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Center the dropdowns */
+    gap: 15px; /* Reduced gap from 20px to 15px */
     margin-bottom: 20px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    max-width: 600px; /* Reduced from 800px */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .dropdown-group {
-    flex: 1;
-    margin-right: 10px;
+    flex: 0 0 auto; /* Don't grow or shrink, use natural width */
+    min-width: 150px; /* Reduced from 200px */
+    max-width: 180px; /* Reduced from 250px */
 }
 
 .dropdown-group:last-child {
     margin-right: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dropdown-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px; /* Reduced gap */
+        max-width: 100%;
+    }
+    
+    .dropdown-group {
+        width: 100%;
+        max-width: 250px; /* Reduced from 300px */
+    }
+    
+    select {
+        min-width: unset;
+    }
+}
+
+@media (max-width: 480px) {
+    .dropdown-container {
+        gap: 10px;
+        padding: 0 10px;
+    }
+    
+    .dropdown-group {
+        max-width: 100%;
+    }
+    
+    select {
+        font-size: 13px;
+        padding: 5px 8px; /* Further reduced padding */
+        min-width: 120px; /* Smaller minimum width */
+    }
 }
