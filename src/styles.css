@@ -1,40 +1,151 @@
 body {
     font-family: 'Roboto Condensed', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     justify-content: center;
-    background-color: #e9e9e9; /* Light background for the page */
-    margin: auto
+    background: 
+        linear-gradient(135deg, rgba(44, 62, 80, 0.1) 0%, transparent 50%), 
+        linear-gradient(225deg, rgba(39, 174, 96, 0.1) 0%, transparent 50%),
+        linear-gradient(315deg, rgba(0, 0, 0, 0.05) 0%, transparent 50%),
+        linear-gradient(45deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    line-height: 1.6;
+    position: relative;
+}
+
+/* Enhanced texture pattern with geometric shapes */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(44, 62, 80, 0.03) 2px, transparent 2px),
+        radial-gradient(circle at 75% 75%, rgba(39, 174, 96, 0.03) 1px, transparent 1px),
+        linear-gradient(45deg, transparent 45%, rgba(0, 0, 0, 0.01) 50%, transparent 55%);
+    background-size: 60px 60px, 40px 40px, 80px 80px;
+    background-position: 0 0, 20px 20px, 0 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Add a subtle animated element */
+body::after {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(39, 174, 96, 0.02) 1px, transparent 1px);
+    background-size: 100px 100px;
+    animation: float 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -2;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-20px, -20px) rotate(1deg); }
 }
 
 .styled-table {
     border-collapse: collapse;
     margin: auto;
-    font-size: .9em;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    max-width: -moz-fit-content;
+    font-size: 0.95em;
+    font-family: 'Roboto Condensed', Verdana, Geneva, Tahoma, sans-serif;
     max-width: fit-content;
-    box-shadow: 0 0 20px #00000026
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
 }
 
 .styled-table thead tr {
-    background-color: #9b9b9b;
-    color: #000;
-    text-align: center
+    background: linear-gradient(135deg, #2c3e50 0%, #27ae60 100%); /* Palestine colors gradient to match app theme */
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .styled-table th,
 .styled-table td {
-    padding: 10px
+    padding: 12px 16px;
+    border: none;
 }
 
 .styled-table tbody tr {
-    border-bottom: 1px solid #dddddd
+    border-bottom: 1px solid #e8e8e8;
+    transition: background-color 0.2s ease;
 }
 
 .styled-table tbody tr:nth-of-type(even) {
-    background-color: #fff
+    background-color: #f8f9fa;
+}
+
+.styled-table tbody tr:hover {
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.1) 0%, rgba(39, 174, 96, 0.1) 100%); /* Light gradient hover effect */
+    transform: translateY(-1px);
 }
 
 .styled-table tbody tr.active-row {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #000
+    font-family: 'Roboto Condensed', Verdana, Geneva, Tahoma, sans-serif;
+    color: #000000;
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.15) 0%, rgba(39, 174, 96, 0.15) 100%); /* Light gradient for active row */
+    font-weight: 600;
+}
+
+/* Add some global improvements */
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #333; /* Standard dark color for better readability */
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Only apply gradient to primary buttons/important elements */
+button.primary {
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: linear-gradient(135deg, #2c3e50 0%, #27ae60 100%); /* Palestine colors gradient */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+}
+
+button.primary:hover {
+    background: linear-gradient(135deg, #27ae60 0%, #2c3e50 100%); /* Reversed gradient on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Standard buttons get simpler styling */
+button {
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+}
+
+button:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+}
+
+button:focus {
+    outline: 2px solid #27ae60; /* Updated to match gradient green */
+    outline-offset: 2px;
 }

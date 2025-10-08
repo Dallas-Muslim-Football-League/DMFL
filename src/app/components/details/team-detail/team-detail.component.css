@@ -1,17 +1,29 @@
 h2 {
     margin-top: 0%;
-    margin-bottom: 0%;
+    margin-bottom: 15px;
+    color: #2c3e50; /* Match theme color */
 }
 
 .center {
-    background-color: rgb(236, 236, 236);
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.05) 0%, rgba(39, 174, 96, 0.05) 100%); /* Subtle gradient background */
     margin: auto;
     max-width: fit-content;
     margin-top: 25px;
-    padding: 10px;
-    padding-top: 0%;
+    padding: 20px;
+    padding-top: 15px;
     text-align: center;
     overflow: auto;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: 1px solid rgba(44, 62, 80, 0.1); /* Subtle border */
+    backdrop-filter: blur(10px); /* Modern glass effect */
+    transition: all 0.3s ease;
+}
+
+.center:hover {
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.08) 0%, rgba(39, 174, 96, 0.08) 100%); /* Slightly more visible on hover */
+    transform: translateY(-2px); /* Subtle lift */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
 }
 
 .captain {
@@ -19,5 +31,11 @@ h2 {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -10px;
+    margin-top: -5px; /* Adjusted for better spacing with new padding */
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)); /* Add subtle shadow to captain icon */
+    transition: transform 0.2s ease;
+}
+
+.captain:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
 }
