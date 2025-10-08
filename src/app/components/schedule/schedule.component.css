@@ -118,60 +118,89 @@ tbody tr:hover td {
     font-size: 16px;
 }
 
-/* Improved dropdown container styling with smaller gaps */
+/* Improved dropdown container - keep horizontal on all screens */
 .dropdown-container {
     display: flex;
     justify-content: center; /* Center the dropdowns */
-    gap: 15px; /* Reduced gap from 20px to 15px */
+    gap: 12px; /* Reduced gap */
     margin-bottom: 20px;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    flex-wrap: nowrap; /* Prevent wrapping to keep horizontal */
     max-width: 600px; /* Reduced from 800px */
     margin-left: auto;
     margin-right: auto;
+    overflow-x: auto; /* Allow horizontal scrolling if needed on very small screens */
 }
 
 .dropdown-group {
     flex: 0 0 auto; /* Don't grow or shrink, use natural width */
-    min-width: 150px; /* Reduced from 200px */
-    max-width: 180px; /* Reduced from 250px */
+    min-width: 140px; /* Slightly reduced */
+    max-width: 160px; /* Reduced */
 }
 
 .dropdown-group:last-child {
     margin-right: 0;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments - keep horizontal layout */
 @media (max-width: 768px) {
     .dropdown-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px; /* Reduced gap */
+        gap: 8px; /* Smaller gap for tablets */
+        padding: 0 10px; /* Add some padding */
         max-width: 100%;
     }
     
     .dropdown-group {
-        width: 100%;
-        max-width: 250px; /* Reduced from 300px */
+        min-width: 120px; /* Smaller on tablets */
+        max-width: 140px;
     }
     
     select {
-        min-width: unset;
+        font-size: 13px;
+        padding: 5px 8px;
+    }
+    
+    .stats-dropdown label {
+        font-size: 14px;
     }
 }
 
 @media (max-width: 480px) {
     .dropdown-container {
-        gap: 10px;
-        padding: 0 10px;
+        gap: 6px; /* Even smaller gap for mobile */
+        padding: 0 5px;
     }
     
     .dropdown-group {
-        max-width: 100%;
+        min-width: 100px; /* Smaller for mobile */
+        max-width: 120px;
     }
     
     select {
+        font-size: 12px;
+        padding: 4px 6px; /* Further reduced padding */
+        min-width: 100px; /* Smaller minimum width */
+    }
+    
+    .stats-dropdown label {
         font-size: 13px;
-        padding: 5px 8px; /* Further reduced padding */
-        min-width: 120px; /* Smaller minimum width */
+    }
+}
+
+/* Extra small screens - very compact */
+@media (max-width: 360px) {
+    .dropdown-container {
+        gap: 4px;
+        padding: 0 2px;
+    }
+    
+    .dropdown-group {
+        min-width: 90px;
+        max-width: 110px;
+    }
+    
+    select {
+        font-size: 11px;
+        padding: 3px 5px;
+        min-width: 90px;
     }
 }
