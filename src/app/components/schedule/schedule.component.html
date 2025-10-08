@@ -1,10 +1,18 @@
 <div class="center" *ngIf="schedules">
-    <select [(ngModel)]="selectedMapKey" (ngModelChange)="getSeason($event)">
-        <option *ngFor="let season of seasonMap | keyvalue" [ngValue]="season.key">{{season.key}}</option>
-    </select>
-    <select [(ngModel)]="selectedSchedule">
-        <option *ngFor="let schedule of schedules | orderBy: 'week'" [ngValue]="schedule">{{schedule.week}}</option>
-    </select>
+    <div class="dropdown-container">
+        <div class="dropdown-group">
+            <label for="seasonSelect">Season:</label>
+            <select id="seasonSelect" [(ngModel)]="selectedMapKey" (ngModelChange)="getSeason($event)">
+                <option *ngFor="let season of seasonMap | keyvalue" [ngValue]="season.key">{{season.key}}</option>
+            </select>
+        </div>
+        <div class="dropdown-group">
+            <label for="scheduleSelect">Schedule:</label>
+            <select id="scheduleSelect" [(ngModel)]="selectedSchedule">
+                <option *ngFor="let schedule of schedules | orderBy: 'week'" [ngValue]="schedule">{{schedule.week}}</option>
+            </select>
+        </div>
+    </div>
     <div *ngIf="selectedSchedule">
         <table>
             <thead>
