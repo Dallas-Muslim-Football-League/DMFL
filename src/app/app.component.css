@@ -40,13 +40,30 @@
 
 .nav-menu {
   display: flex; /* Changed from grid to flex for single row */
-  width: 50%; /* Adjusted width for better right positioning */
+  width: auto; /* Changed from 50% to auto for better control */
+  max-width: 600px; /* Set maximum width */
   gap: 5px;
   margin-right: 20px; /* Space from right edge */
   flex-shrink: 0; /* Prevent menu from shrinking */
   padding: 0; /* Remove any default padding */
   margin-top: 0; /* Remove top margin */
   margin-bottom: 0; /* Remove bottom margin */
+  margin-left: auto; /* Push to the right */
+}
+
+/* Desktop and large screens - ensure proper alignment */
+@media (min-width: 1025px) {
+  .nav-menu {
+    width: auto;
+    max-width: 700px;
+    gap: 8px;
+    margin-right: 30px;
+  }
+  
+  .menu-item a {
+    padding: 6px 12px; /* More generous padding on desktop */
+    font-size: 1rem; /* Standard font size */
+  }
 }
 
 /* Mobile responsive design - Keep single horizontal line */
@@ -59,6 +76,8 @@
     width: 65%; /* Slightly wider for better fit */
     gap: 3px; /* Smaller gaps */
     margin-right: 10px; /* Less margin */
+    margin-left: 0; /* Reset margin-left on mobile */
+    max-width: none; /* Remove max-width on mobile */
   }
   
   .menu-item {
@@ -110,7 +129,10 @@
 /* Tablet adjustments */
 @media (max-width: 1024px) and (min-width: 769px) {
   .nav-menu {
-    width: 55%;
+    width: auto;
+    max-width: 500px;
+    gap: 6px;
+    margin-right: 20px;
   }
 }
 
