@@ -113,3 +113,19 @@ tbody tr:hover td {
     font-weight: 600;
     font-size: 16px;
 }
+
+/* Dropdown container styling */
+.dropdown-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.dropdown-group {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.dropdown-group:last-child {
+    margin-right: 0;
+}
