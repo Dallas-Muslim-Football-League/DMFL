@@ -6,14 +6,24 @@ body {
 h1 {
     text-align: center;
     margin-bottom: 30px;
+    color: #2c3e50; /* Match global heading color */
+    font-weight: 600; /* Match global heading weight */
 }
 
 .section {
     display: flex;
-    border: 1px solid #ccc;
+    border: none; /* Remove harsh border */
     margin-bottom: 20px;
-    padding: 15px;
+    padding: 20px; /* Increase padding */
     box-sizing: border-box;
+    background: #fff; /* Clean white background */
+    border-radius: 8px; /* Match global border radius */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Softer shadow like tables */
+    transition: box-shadow 0.2s ease; /* Add hover effect */
+}
+
+.section:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
 }
 
 .section-image {
@@ -28,12 +38,19 @@ h1 {
     height: auto;
     display: block;
     object-fit: contain;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Match global shadow style */
+    border-radius: 6px; /* Add subtle rounding */
+    transition: transform 0.2s ease; /* Add hover effect */
+}
+
+.section-image img:hover {
+    transform: scale(1.02); /* Subtle zoom on hover */
 }
 
 .section-text {
     flex: 1;
     padding: 20px;
+    color: #2c3e50; /* Match global text color */
 }
 
 #section2 {
@@ -44,10 +61,16 @@ h1 {
     text-align: center;
     overflow-x: auto;
     white-space: nowrap;
+    background: #fff; /* Add background */
+    border-radius: 8px; /* Match other sections */
+    padding: 20px; /* Add padding */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Match section shadow */
 }
 
-.gallery-title { /* Added gallery-title style */
+.gallery-title {
     margin-bottom: 20px;
+    color: #2c3e50; /* Match global heading color */
+    font-weight: 600; /* Match global heading weight */
 }
 
 .image-container {
@@ -55,68 +78,93 @@ h1 {
     width: 200px;
     text-align: center;
     vertical-align: top;
-    margin-right: 10px;
+    margin-right: 15px; /* Increase spacing */
     flex-shrink: 0;
+    transition: transform 0.2s ease; /* Add hover effect */
+}
+
+.image-container:hover {
+    transform: translateY(-2px); /* Subtle lift on hover */
 }
 
 .image-container img {
     width: 100%;
-    height: auto;
-    height: 150px; /* Added fixed height */
-    object-fit: cover; /* Added object-fit */
+    height: 150px;
+    object-fit: cover;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px; /* Increase spacing */
     cursor: pointer;
+    border-radius: 6px; /* Add rounding */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    transition: box-shadow 0.2s ease; /* Add transition */
 }
 
-.image-container p{
+.image-container img:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.image-container p {
     word-wrap: break-word;
     margin-top: 0;
     margin-bottom: 0;
-    line-height: 1.2;
+    line-height: 1.3; /* Improve readability */
     font-size: 14px;
+    color: #2c3e50; /* Match global text color */
+    font-weight: 500; /* Slightly bolder */
 }
 
-/* Modal styles */
+/* Modal styles - enhanced */
 .modal {
     display: block;
     position: fixed;
-    z-index: 1;
+    z-index: 1000; /* Increase z-index */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
-    display: flex; /* Add this line */
-    justify-content: center; /* Add this line */
-    align-items: center; /* Add this line */
+    background-color: rgba(44, 62, 80, 0.9); /* Use theme color with transparency */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px); /* Add blur effect */
 }
 
 .modal-content {
     margin: auto;
     display: block;
-    max-width: 80%;
-    max-height: 80%;
+    max-width: 85%; /* Slightly larger */
+    max-height: 85%;
+    border-radius: 8px; /* Add rounding */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
 }
 
 .modal-content#modalImage {
-  height: auto;
+    height: auto;
 }
 
 .close {
     position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
+    top: 20px; /* Better positioning */
+    right: 40px;
+    color: #ecf0f1; /* Lighter color */
+    font-size: 45px; /* Slightly larger */
     font-weight: bold;
-    transition: 0.3s;
+    transition: all 0.2s ease; /* Smooth transition */
+    background: rgba(44, 62, 80, 0.7); /* Add background */
+    border-radius: 50%; /* Make circular */
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .close:hover,
 .close:focus {
-    color: #bbb;
+    color: #27ae60; /* Use theme green */
+    background: rgba(44, 62, 80, 0.9); /* Darker background */
+    transform: scale(1.1); /* Slight zoom */
     text-decoration: none;
     cursor: pointer;
 }
@@ -124,22 +172,34 @@ h1 {
 /* Media query for portrait mode on phones */
 @media (max-width: 768px) {
     .section {
-        flex-direction: column; /* Stack image and text vertically */
+        flex-direction: column;
+        margin: 10px; /* Add margin for mobile */
+        padding: 15px; /* Reduce padding */
     }
 
     #section2 {
-        flex-direction: column; /* Stack image and text vertically in section2 */
+        flex-direction: column;
     }
 
     .section-image {
-        max-height: none; /* Allow full height for images in portrait */
+        max-height: none;
+        padding: 5px; /* Reduce padding */
     }
 
     .section-text {
-        padding: 10px; /* Reduce padding for better fit on small screens */
+        padding: 15px; /* Adjust padding */
     }
-    /* .section-images-only {
-        overflow-x: auto;
-        display: block;
-    } */
+
+    .section-images-only {
+        margin: 10px; /* Add margin for mobile */
+        padding: 15px; /* Reduce padding */
+    }
+
+    .close {
+        top: 15px; /* Adjust for mobile */
+        right: 20px;
+        font-size: 35px; /* Smaller for mobile */
+        width: 50px;
+        height: 50px;
+    }
 }

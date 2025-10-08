@@ -1,72 +1,124 @@
 h2 {
     margin: auto;
     margin-bottom: 15px;
+    color: #2c3e50; /* Match global heading color */
+    font-weight: 600; /* Match global heading weight */
 }
 
 .center {
-    background-color: rgb(238, 238, 238);
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.05) 0%, rgba(39, 174, 96, 0.05) 100%); /* Palestine-themed gradient background */
     margin: auto;
     max-width: fit-content;
     margin-top: 25px;
-    padding: 10px;
-    padding-top: 0%;
+    padding: 20px;
+    padding-top: 15px;
     text-align: center;
     overflow: auto;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: 1px solid rgba(44, 62, 80, 0.1); /* Subtle border */
+    backdrop-filter: blur(10px); /* Modern glass effect */
+    transition: all 0.3s ease;
+}
+
+.center:hover {
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.08) 0%, rgba(39, 174, 96, 0.08) 100%); /* Slightly more visible on hover */
+    transform: translateY(-2px); /* Subtle lift */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
 }
 
 select {
-  margin-bottom: 24px; /* Increase spacing below dropdown */
+    margin-bottom: 24px;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 2px solid #2c3e50; /* Match theme color */
+    background: #fff;
+    color: #2c3e50;
+    transition: all 0.3s ease;
+}
+
+select:hover {
+    background: linear-gradient(135deg, #2c3e50 0%, #27ae60 100%); /* Palestine colors gradient on hover */
+    color: #fff;
+    border-color: #27ae60;
+}
+
+select:focus {
+    outline: none;
+    border-color: #27ae60; /* Green focus border */
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2); /* Focus shadow */
 }
 
 .button-row {
-  text-align: left;
-  width: 100%;
+    text-align: left;
+    width: 100%;
 }
 
 button[type="button"] {
-  margin-top: 24px;
-  display: block;
-  padding: 0.6rem 2rem;
-  background-color: #222;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-size: 1.05rem;
-  font-weight: 500;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  cursor: pointer;
-  transition: background 0.2s, box-shadow 0.2s;
+    margin-top: 24px;
+    display: block;
+    padding: 0.6rem 2rem;
+    background: linear-gradient(135deg, #2c3e50 0%, #27ae60 100%); /* Palestine colors gradient */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 button[type="button"]:hover {
-  background-color: #444;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    background: linear-gradient(135deg, #27ae60 0%, #2c3e50 100%); /* Reversed gradient on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+button[type="button"]:focus {
+    outline: 2px solid #27ae60;
+    outline-offset: 2px;
+}
+
+button[type="button"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 1000px) {
-  .styled-table {
-    min-width: 100%;
-    font-size: 0.85rem;
-    overflow-x: auto;
-    display: block;
-    width: 100%;
-  }
-  .center {
-    padding: 0 0.5rem;
-  }
+    .styled-table {
+        min-width: 100%;
+        font-size: 0.85rem;
+        overflow-x: auto;
+        display: block;
+        width: 100%;
+    }
+    .center {
+        padding: 15px;
+        margin: 15px;
+    }
 }
 
 @media (max-width: 600px) {
-  .styled-table th,
-  .styled-table td {
-    padding: 8px 6px;
-    font-size: 0.75rem;
-  }
-  h2 {
-    font-size: 1.2rem;
-  }
-  button[type="button"] {
-    font-size: 0.9rem;
-    padding: 0.4rem 1rem;
-  }
+    .styled-table th,
+    .styled-table td {
+        padding: 8px 6px;
+        font-size: 0.75rem;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+    .center {
+        margin: 10px;
+        padding: 12px;
+    }
+    select {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.8rem;
+    }
+    button[type="button"] {
+        font-size: 0.9rem;
+        padding: 0.4rem 1rem;
+    }
 }

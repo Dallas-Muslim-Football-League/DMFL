@@ -2,6 +2,9 @@
 
 h2 {
     text-align: center;
+    color: #2c3e50; /* Match global heading color */
+    font-weight: 600; /* Match global heading weight */
+    margin-bottom: 2rem; /* Better spacing */
 }
 
 img {
@@ -12,6 +15,12 @@ img {
     padding-top: 0;
     padding-bottom: 0;
     width: 50%;
+    border-radius: 4px; /* Add subtle rounding */
+    transition: transform 0.2s ease; /* Add hover effect */
+}
+
+img:hover {
+    transform: scale(1.05); /* Subtle zoom on hover */
 }
 
 .teams-menu {
@@ -26,27 +35,27 @@ img {
     justify-content: space-around;
     align-content: flex-start;
     align-items: flex-start;
+    gap: 1rem; /* Modern gap property instead of margins */
 }
 
 a {
-    background-color: #8a8a8a;
-    box-shadow: 5px 5px 5px rgb(168, 168, 168);
-    /* background-image:  url('../../../free-palestine.png');
-    background-blend-mode: lighten;
-    background-position: left;
-    background-size: 500px; */
-    border-radius: 2px;
-    padding: 1rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); /* Modern gradient background */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Softer, modern shadow */
+    border-radius: 8px; /* Match global border radius */
+    padding: 1.5rem; /* Increase padding */
     font-size: 1.2rem;
     text-decoration: none;
     display: flex;
     align-items: center;
     text-align: center;
-    color: #000000;
+    color: #2c3e50; /* Match global text color */
     width: 100%;
     min-width: 70px;
-    margin: .5rem auto;
+    margin: 0; /* Remove margin, using gap instead */
     box-sizing: border-box;
+    transition: all 0.2s ease; /* Smooth transitions */
+    border: 2px solid transparent; /* Prepare for hover border */
+    font-weight: 500; /* Slightly bolder text */
 
     /* flexbox */
     order: 0;
@@ -56,16 +65,38 @@ a {
 
 .name {
     margin: auto;
+    font-weight: 600; /* Make team names more prominent */
 }
 
 @media (min-width: 600px) {
     a {
         width: 30%;
-        height: 30%;
-        box-sizing: content-box;
+        height: auto; /* Allow natural height */
+        box-sizing: border-box;
     }
 }
 
 a:hover {
-    outline: auto;
+    background: linear-gradient(135deg, #2c3e50 0%, #27ae60 100%); /* Palestine colors on hover */
+    color: #fff; /* White text on hover */
+    transform: translateY(-2px); /* Subtle lift */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+    border: 2px solid #27ae60; /* Green border on hover */
+}
+
+a:focus {
+    outline: 2px solid #27ae60; /* Match global focus outline */
+    outline-offset: 2px;
+}
+
+/* Add responsive improvements */
+@media (max-width: 599px) {
+    .teams-menu {
+        padding: 0 1rem; /* Add side padding on mobile */
+    }
+    
+    a {
+        padding: 1rem; /* Reduce padding on mobile */
+        font-size: 1.1rem; /* Slightly smaller text */
+    }
 }

@@ -1,0 +1,140 @@
+h2 {
+    text-align: center;
+    color: #2c3e50; /* Match global heading color */
+    font-weight: 600; /* Match global heading weight */
+    margin-bottom: 2rem; /* Better spacing */
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); /* Modern gradient background */
+    border-radius: 8px; /* Add border radius */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Add modern shadow */
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    min-width: 900px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Clean edges with border-radius */
+    background-color: #fff;
+}
+
+.styled-table thead tr {
+    background: linear-gradient(135deg, #2c3e50 0%, #27ae60 100%); /* Palestine colors for header */
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 16px; /* More generous padding */
+    border: none; /* Clean look without borders */
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #e8e8e8; /* Lighter border */
+    transition: background-color 0.2s ease; /* Smooth hover effect */
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f8f9fa; /* Subtle alternating rows */
+}
+
+.styled-table tbody tr:hover {
+    background-color: #d5f4e6; /* Light green hover effect */
+    transform: translateY(-1px); /* Subtle lift on hover */
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #2c3e50;
+    background-color: #ecf0f1;
+}
+
+/* Captain badge styling */
+.captain {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+    border-radius: 50%; /* Make badge circular */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+button[type="button"] {
+    margin-top: 24px;
+    display: block;
+    padding: 0.6rem 2rem;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); /* Gradient background */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+    cursor: pointer;
+    transition: all 0.2s ease; /* Smooth transition */
+    align-self: flex-start; /* Left align the button */
+}
+
+button[type="button"]:hover {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); /* Green gradient on hover */
+    transform: translateY(-1px); /* Subtle lift */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+button[type="button"]:focus {
+    outline: 2px solid #27ae60; /* Green focus outline */
+    outline-offset: 2px;
+}
+
+@media (max-width: 1000px) {
+    .styled-table {
+        min-width: 100%;
+        font-size: 0.85rem;
+        overflow-x: auto;
+        display: block;
+        width: 100%;
+    }
+    .center {
+        padding: 15px; /* Reduce padding on tablets */
+        margin: 15px; /* Add margin for better spacing */
+    }
+}
+
+@media (max-width: 600px) {
+    .styled-table th,
+    .styled-table td {
+        padding: 8px 6px;
+        font-size: 0.75rem;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+    .center {
+        margin: 10px; /* Reduce margin on mobile */
+        padding: 12px; /* Reduce padding on mobile */
+    }
+    button[type="button"] {
+        font-size: 0.9rem;
+        padding: 0.4rem 1rem;
+    }
+    .captain {
+        width: 16px;
+        height: 16px;
+        margin-right: 6px;
+    }
+}

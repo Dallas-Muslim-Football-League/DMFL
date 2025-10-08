@@ -2,51 +2,42 @@
     <div class="content">
         <header class="header">
             <div class="wrapper">
-              <div class="logo">
-                <img [src]="imageDir + '/DMFL-Logo.png'" alt="a logo">
-              </div>
-              <div class="header-text">
-                {{title}}
-              </div>
-            </div>
-            <a class="login" *ngIf="user === 'admin'" routerLink="/adminTools">Admin tools</a>
-            <nav class="nav-menu">
-                <div class="menu-item">
-                    <a routerLink="/home">Home</a>
+                <div class="logo">
+                    <img [src]="imageDir + '/DMFL-Logo.png'" alt="a logo">
                 </div>
-                <div class="menu-item">
-                    <a routerLink="/teams">Teams</a>
-                </div>
-                <div class="menu-item">
-                    <a routerLink="/standings">Standings</a>
-                </div>
-                <div class="menu-item">
-                    <a routerLink="/stats">Stats</a>
-                    <div class="sub-menu">
-                        <div class="sub-menu-item">
-                            <a href="/stats/team">Team</a>
-                        </div>
-                        <div class="sub-menu-item">
-                            <a href="/stats/player">Player</a>
+                <nav class="nav-menu">
+                    <div class="menu-item">
+                        <a routerLink="/home">Home</a>
+                    </div>
+                    <div class="menu-item">
+                        <a routerLink="/teams">Teams</a>
+                    </div>
+                    <div class="menu-item">
+                        <a routerLink="/standings">Standings</a>
+                    </div>
+                    <div class="menu-item">
+                        <a routerLink="/stats">Stats</a>
+                        <div class="sub-menu">
+                            <div class="sub-menu-item">
+                                <a href="/stats/team">Team</a>
+                            </div>
+                            <div class="sub-menu-item">
+                                <a href="/stats/player">Player</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="menu-item">
-                    <a routerLink="/schedule">Schedule</a>
-                </div>
-            </nav>
+                    <div class="menu-item">
+                        <a routerLink="/schedule">Schedule</a>
+                    </div>
+                </nav>
+            </div>
         </header>
         <router-outlet></router-outlet>
     </div>
     <footer class="footer">
         <div class="social-media-container">
-            <!-- Instagram -->
-            <a href="https://www.instagram.com/official_dmfl/" class="fa-brands fa-instagram fa-2xl"></a>
-            <a href="https://www.tiktok.com/@official.dmfl" class="fa-brands fa-tiktok fa-2xl"></a>
-            <a href="https://www.youtube.com/@DMFL_2025" class="fa-brands fa-youtube fa-2xl"></a>
         </div>
         <div class="copyright">
-            © 2025 A <a href="javascript:void(0);"><strong>DMFL</strong></a> Theme
         </div>
     </footer>
 </div>
