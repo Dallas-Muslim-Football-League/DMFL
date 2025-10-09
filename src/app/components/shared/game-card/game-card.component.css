@@ -1,0 +1,39 @@
+:host {
+  display: block;
+  font-family: sans-serif;
+}
+
+.game-line-container {
+  display: flex;
+  align-items: baseline;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #ffffff;
+}
+
+.team-abbreviation {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.separator {
+  font-size: 0.9rem;
+  color: #757575;
+  margin: 0 0.75em;
+}
+
+/* This new container pushes the result to the right */
+.game-result {
+  margin-left: auto;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-align: right;
+}
+
+.final-score {
+  color: #000; /* Make the final score black */
+}
+
+.game-time {
+  color: #555; /* Keep the time a lighter color */
+}

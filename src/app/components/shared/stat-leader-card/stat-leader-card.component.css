@@ -1,0 +1,42 @@
+.stat-card-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.stat-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+/* This is the most important part for this step */
+.player-row {
+  display: flex; /* This turns the row into a flex container, aligning items horizontally */
+  align-items: center; /* Vertically aligns the text in the middle */
+  margin-bottom: 0.5rem; /* Space between each player row */
+  font-size: 0.9rem;
+}
+
+.rank {
+  font-weight: bold;
+  margin-right: 0.5rem; /* Space after the rank number */
+  width: 20px; /* Gives the rank a consistent width */
+}
+
+.player-name {
+  font-weight: 500;
+}
+
+.stat-value {
+  font-weight: bold;
+  /* This is the key trick: it pushes the stat value all the way to the right */
+  margin-left: auto;
+}

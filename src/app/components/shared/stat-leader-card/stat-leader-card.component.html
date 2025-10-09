@@ -1,0 +1,23 @@
+<div class="stat-card-container">
+  
+  <!-- The title will change based on the input (e.g., "Passing Leaders") -->
+  <h3 class="stat-title">{{ statCategory | titlecase }} Leaders</h3>
+
+  <div *ngIf="isLoading" class="loading">
+    <p>Loading stats...</p>
+  </div>
+
+  <div *ngIf="!isLoading && leaders.length > 0" class="leaders-list">
+    <!-- Loop through the top 3 leaders -->
+    <div class="player-row" *ngFor="let playerStats of leaders; let i = index">
+      <span class="rank">{{ i + 1 }}.</span>
+      <span class="player-name">{{ playerStats.player.lastName }}, {{ playerStats.player.firstName }}</span>
+      <!-- Display the correct stat value based on the category -->
+      <span class="stat-value" [ngSwitch]="statCategory">
+        <span *ngSwitchCase="'passing'">{{ playerStats.passingYards | number }} YDS</span>
+        <span *ngSwitchCase="'rushing'">{{ playerStats.rushingYards | number }} YDS</span>
+        <span *ngSwitchCase="'receiving'">{{ playerStats.receivingYards | number }} YDS</span>
+      </span>
+    </div>
+  </div>
+</div>

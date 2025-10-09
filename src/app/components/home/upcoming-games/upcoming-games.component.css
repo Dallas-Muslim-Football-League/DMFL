@@ -1,0 +1,54 @@
+/*
+  Styles for the upcoming games card, designed to match the
+  home page's glass card theme.
+*/
+
+:host {
+  display: block;
+  /* Ensures the component fills the height of the grid cell in home.component.css */
+  height: 100%;
+}
+
+/*
+  This targets the main <section> element in the upcoming-games component.
+*/
+.upcoming-games-section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem; /* Consistent padding */
+
+  /* Glassmorphism effect using theme variables from home.component.css */
+  background: var(--section-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Styles the title */
+h2 {
+  text-align: center;
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/*
+  This container holds the list of games and becomes scrollable if needed.
+*/
+.games-container {
+  flex-grow: 1; /* Allows this container to fill the remaining vertical space */
+  overflow-y: auto; /* Adds a scrollbar if the list of games is too long */
+}
+
+/* Styling for the loading and "no games" messages */
+.loading,
+.no-games {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  color: var(--muted);
+  font-style: italic;
+}

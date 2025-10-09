@@ -1,73 +1,21 @@
-<body>
-    <h1>Faith. Family. Football.</h1>
+<div class="home-container">
 
-    <div id="about" class="section">
-        <div class="section-image">
-            <img [src]="imageDir + '/home-background.jpg'" alt="Image 1">
-        </div>
-        <div class="section-text">
-            <h1>About</h1>
-            <p>The Dallas Muslim Football League (DMFL) is a faith-based flag football league that promotes community, camaraderie, and brotherhood. Players of all religions and backgrounds are welcome to play. 
-                DMFL prides itself on being one of the most competitive leagues in DFW, while also being the only league in DFW to record all games and provide highlight reels from professional videographers. 
-                Thank you to all the players, volunteers, fans, and sponsors who make DMFL a huge success annually.</p>
-        </div>
-    </div>
+  <app-news></app-news>
 
-    <div id="section2" class="section">
-        <div class="section-image">
-            <img [src]="imageDir + '/home-faith.jpg'" alt="Image 2">
-        </div>
-        <div class="section-text">
-            <h1>Leadership</h1>
-            <ul>
-                <li>
-                    Commissioner: Hazem Tariq
-                </li>
-                <li>
-                    Director of Player Personnel/VP of Operations: Dan Syed
-                </li>
-                <li>
-                    Director of Technology: Patrick Fellows
-                </li>
-                <li>
-                    Director of Khatiras and Community Engagement:  Omar Gharbieh
-                </li>
-                <li>
-                    Director of Graphic Design: Farooque Nadeem
-                </li>
-                <li>
-                    Lead Videographer & Social Media: Yasmeen Tariq
-                </li>
-            </ul>
-        </div>
+  <div class="scores-and-schedule">
+    <app-latest-scores></app-latest-scores>
+    <app-upcoming-games></app-upcoming-games>
+  </div>
+  
+  <div class="stat-leaders-section">
+    <h2>League Leaders</h2>
+    <div class="stat-cards-container">
+      <app-stat-leader-card [statCategory]="'passing'"></app-stat-leader-card>
+      <app-stat-leader-card [statCategory]="'rushing'"></app-stat-leader-card>
+      <app-stat-leader-card [statCategory]="'receiving'"></app-stat-leader-card>
     </div>
-    
-    <div id="section3" class="section-images-only">
-        <div class="gallery-title"><h2>Gallery</h2></div>
-        <div class="image-container">
-            <img [src]="imageDir + '/2025-spring-group.JPG'" alt="Image 3A" (click)="openModal('/2025-spring-group.JPG')">
-            <p>2025 Spring Group Photo</p>
-        </div>
-        <div class="image-container">
-            <img [src]="imageDir + '/2024-spring-champs.JPG'" alt="Image 3A" (click)="openModal('/2024-spring-champs.JPG')">
-            <p>2024 Spring League Champions</p>
-        </div>
-        <div class="image-container">
-            <img [src]="imageDir + '/2023-summer-champs.JPG'" alt="Image 3B" (click)="openModal('/2023-summer-champs.JPG')">
-            <p>2023 Summer League Champions</p>
-        </div>
-        <div class="image-container">
-            <img [src]="imageDir + '/free-palestine-2024.JPG'" alt="Image 3C" (click)="openModal('/free-palestine-2024.JPG')">
-            <p>Free Palestine 2024</p>
-        </div>
-        <div class="image-container">
-            <img [src]="imageDir + '/underdogs-2023.JPG'" alt="Image 3D" (click)="openModal('/underdogs-2023.JPG')">
-            <p>The Underdogs 2023</p>
-        </div>
-    </div>
+  </div>
 
-    <div id="imageModal" class="modal" *ngIf="isModalOpen">
-        <span class="close" (click)="closeModal()">&times;</span>
-        <img class="modal-content" [src]="modalImageSrc">
-    </div>
-</body>
+  <app-photo-gallery></app-photo-gallery>
+
+</div>

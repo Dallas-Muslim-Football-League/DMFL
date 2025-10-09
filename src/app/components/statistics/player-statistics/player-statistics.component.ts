@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { StatisticService } from 'src/app/services/statistic.service';
-import { Location } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { PlayerStatistics } from 'src/app/models/player-statistics';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-player-statistics',
+  imports: [
+    CommonModule,
+    FormsModule
+  ],
   templateUrl: './player-statistics.component.html',
   styleUrl: './player-statistics.component.css',
-  standalone: false
 })
 export class PlayerStatisticsComponent implements OnInit {
   playerStats: PlayerStatistics[] = [];

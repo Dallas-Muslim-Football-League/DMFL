@@ -1,0 +1,17 @@
+<div class="gallery-wrapper">
+  <h2>Photo Gallery</h2>
+
+  <div class="gallery-grid">
+    <app-photo-card 
+      *ngFor="let photo of photos"
+      [photo]="photo"
+      [imageDir]="imageDir"
+      (cardClicked)="openModal($event)">
+    </app-photo-card>
+  </div>
+</div>
+
+<div *ngIf="isModalOpen" class="modal" (click)="closeModal()">
+  <span class="close">&times;</span>
+  <img class="modal-content" [src]="modalImageUrl">
+</div>
