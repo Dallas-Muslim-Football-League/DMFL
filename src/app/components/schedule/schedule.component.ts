@@ -1,12 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Schedule } from 'src/app/models/schedule';
 import { ScheduleService } from 'src/app/services/schedule.service';
+import { FormsModule } from '@angular/forms';
+import { OrderByPipe } from 'src/app/order-by.pipe';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-schedule',
+    imports: [
+        CommonModule,
+        FormsModule,
+        RouterModule,
+        OrderByPipe
+    ],
     templateUrl: './schedule.component.html',
     styleUrls: ['./schedule.component.css'],
-    standalone: false
 })
 export class ScheduleComponent implements OnInit {
 

@@ -1,0 +1,21 @@
+<section class="news-section">
+  <h2>Latest News</h2>
+
+  <!-- This block checks if the newsItems array has content -->
+  <div *ngIf="newsItems.length > 0; else noNews">
+    <div class="news-container">
+      <app-news-card *ngFor="let newsItem of newsItems" [item]="newsItem"></app-news-card>
+    </div>
+  </div>
+
+  <!-- 
+    This <ng-template> block (referenced by #noNews) will be displayed 
+    by the *ngIf above when the newsItems array is empty.
+  -->
+  <ng-template #noNews>
+    <div class="no-news-message">
+      <p>No current News</p>
+    </div>
+  </ng-template>
+
+</section>

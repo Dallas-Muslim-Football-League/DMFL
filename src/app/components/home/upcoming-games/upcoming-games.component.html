@@ -1,0 +1,15 @@
+<section class="upcoming-games-section">
+  <h2>Upcoming Games</h2>
+  
+  <div *ngIf="isLoading" class="loading">
+    <p>Loading games...</p>
+  </div>
+
+  <div *ngIf="!isLoading && upcomingGames.length > 0" class="games-container">
+    <app-game-card *ngFor="let game of upcomingGames" [game]="game"></app-game-card>
+  </div>
+
+  <div *ngIf="!isLoading && upcomingGames.length === 0" class="no-games">
+    <p>No games scheduled for the current week.</p>
+  </div>
+</section>

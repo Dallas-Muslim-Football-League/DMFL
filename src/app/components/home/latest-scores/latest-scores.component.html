@@ -1,0 +1,15 @@
+<section class="latest-scores-section">
+  <h2>Latest Scores ({{ weekTitle }})</h2>
+  
+  <div *ngIf="isLoading" class="loading">
+    <p>Loading scores...</p>
+  </div>
+
+  <div *ngIf="!isLoading && latestGames.length > 0" class="games-container">
+    <app-game-card *ngFor="let game of latestGames" [game]="game"></app-game-card>
+  </div>
+
+  <div *ngIf="!isLoading && latestGames.length === 0" class="no-games">
+    <p>No recent scores found.</p>
+  </div>
+</section>

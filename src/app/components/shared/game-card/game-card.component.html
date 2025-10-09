@@ -1,0 +1,20 @@
+<div class="game-line-container" *ngIf="game.homeTeam && game.awayTeam; else tbd">
+  <span class="team-abbreviation">{{ game.awayTeam.abbreviation }}</span>
+  <span class="separator">vs</span>
+  <span class="team-abbreviation">{{ game.homeTeam.abbreviation }}</span>
+
+  <div class="game-result">
+    <span *ngIf="game.homeScore > 0 || game.awayScore > 0; else showTime" class="final-score">
+      {{ game.awayScore }} - {{ game.homeScore }}
+    </span>
+    <ng-template #showTime>
+      <span class="game-time">{{ game.date | date:'short' }}</span>
+    </ng-template>
+  </div>
+</div>
+
+<ng-template #tbd>
+  <div class="game-line-container">
+    <span>TBD vs TBD</span>
+  </div>
+</ng-template>

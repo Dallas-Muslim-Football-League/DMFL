@@ -1,12 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Team } from '../../models/team';
 import { TeamService } from '../../services/team.service';
+import { Router, RouterModule } from '@angular/router';
+import { OrderByPipe } from 'src/app/order-by.pipe';
 
 @Component({
     selector: 'app-teams',
+    imports: [
+        CommonModule,
+        RouterModule,
+        OrderByPipe
+    ],
     templateUrl: './teams.component.html',
-    styleUrls: ['./teams.component.css'],
-    standalone: false
+    styleUrls: ['./teams.component.css']
 })
 export class TeamsComponent implements OnInit {
   teams: any = [];
