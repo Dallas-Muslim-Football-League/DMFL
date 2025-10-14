@@ -1,48 +1,80 @@
 <div class="center">
-    <h2>League Stats</h2>
-    <select [(ngModel)]="selectedCategory" (change)="sortStats()">
-        <option value="passing">Passing</option>
-        <option value="receiving">Receiving</option>
-        <option value="defense">Defense</option>
-    </select>
+  <h2>League Stats</h2>
+  <select [(ngModel)]="selectedCategory" (change)="sortStats()">
+    <option value="passing">Passing</option>
+    <option value="receiving">Receiving</option>
+    <option value="defense">Defense</option>
+  </select>
+  <div class="table-container">
     <table class="styled-table">
-        <thead>
-            <tr>
-            <th>Player</th>
-            <th>REC</th>
-            <th>REC TD</th>
-            <th>REC YDS</th>
-            <th>PAS TD</th>
-            <th>PAS YDS</th>
-            <th>INT THRN</th>
-            <th>RUSH TD</th>
-            <th>RUSH YDS</th>
-            <th>DEF TD</th>
-            <th>DEF INT</th>
-            <th>FLAG PULLS</th>
-            <th>PASS BKUPS</th>
-            <th>SACK</th>
-            <th>SFTY</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="active-row" *ngFor="let stat of playerStats;">
-                <td>{{stat.player.lastName}}, {{stat.player.firstName}}</td>
-                <td>{{stat.receptions}}</td>
-                <td>{{stat.receivingTouchdowns}}</td>
-                <td>{{stat.receivingYards}}</td>
-                <td>{{stat.passingTouchdowns}}</td>
-                <td>{{stat.passingYards}}</td>
-                <td>{{stat.interceptionsThrown}}</td>
-                <td>{{stat.rushingTouchdowns}}</td>
-                <td>{{stat.rushingYards}}</td>
-                <td>{{stat.defensiveTouchdowns}}</td>
-                <td>{{stat.defensiveInterceptions}}</td>
-                <td>{{stat.flagPulls}}</td>
-                <td>{{stat.passBreakups}}</td>
-                <td>{{stat.sacks}}</td>
-                <td>{{stat.safeties}}</td>
-            </tr>
-        </tbody>
+      <thead>
+        <tr>
+          <th>Player</th>
+          <th [class.highlighted]="isHighlightedColumn('REC')">REC</th>
+          <th [class.highlighted]="isHighlightedColumn('REC TD')">REC TD</th>
+          <th [class.highlighted]="isHighlightedColumn('REC YDS')">REC YDS</th>
+          <th [class.highlighted]="isHighlightedColumn('PAS TD')">PAS TD</th>
+          <th [class.highlighted]="isHighlightedColumn('PAS YDS')">PAS YDS</th>
+          <th [class.highlighted]="isHighlightedColumn('INT THRN')">
+            INT THRN
+          </th>
+          <th>RUSH TD</th>
+          <th>RUSH YDS</th>
+          <th [class.highlighted]="isHighlightedColumn('DEF TD')">DEF TD</th>
+          <th [class.highlighted]="isHighlightedColumn('DEF INT')">DEF INT</th>
+          <th [class.highlighted]="isHighlightedColumn('FLAG PULLS')">
+            FLAG PULLS
+          </th>
+          <th [class.highlighted]="isHighlightedColumn('PASS BKUPS')">
+            PASS BKUPS
+          </th>
+          <th [class.highlighted]="isHighlightedColumn('SACK')">SACK</th>
+          <th [class.highlighted]="isHighlightedColumn('SFTY')">SFTY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="active-row" *ngFor="let stat of playerStats">
+          <td>{{ stat.player.lastName }}, {{ stat.player.firstName }}</td>
+          <td [class.highlighted]="isHighlightedColumn('REC')">
+            {{ stat.receptions }}
+          </td>
+          <td [class.highlighted]="isHighlightedColumn('REC TD')">
+            {{ stat.receivingTouchdowns }}
+          </td>
+          <td [class.highlighted]="isHighlightedColumn('REC YDS')">
+            {{ stat.receivingYards }}
+          </td>
+          <td [class.highlighted]="isHighlightedColumn('PAS TD')">
+            {{ stat.passingTouchdowns }}
+          </td>
+          <td [class.highlighted]="isHighlightedColumn('PAS YDS')">
+            {{ stat.passingYards }}
+          </td>
+          <td [class.highlighted]="isHighlightedColumn('INT THRN')">
+            {{ stat.interceptionsThrown }}
+          </td>
+          <td>{{ stat.rushingTouchdowns }}</td>
+          <td>{{ stat.rushingYards }}</td>
+          <td [class.highlighted]="isHighlightedColumn('DEF TD')">
+            {{ stat.defensiveTouchdowns }}
+          </td>
+          <td [class.highlighted]="isHighlightedColumn('DEF INT')">
+            {{ stat.defensiveInterceptions }}
+          </td>
+          <td [class.highlighted]="isHighlightedColumn('FLAG PULLS')">
+            {{ stat.flagPulls }}
+          </td>
+          <td [class.highlighted]="isHighlightedColumn('PASS BKUPS')">
+            {{ stat.passBreakups }}
+          </td>
+          <td [class.highlighted]="isHighlightedColumn('SACK')">
+            {{ stat.sacks }}
+          </td>
+          <td [class.highlighted]="isHighlightedColumn('SFTY')">
+            {{ stat.safeties }}
+          </td>
+        </tr>
+      </tbody>
     </table>
+  </div>
 </div>

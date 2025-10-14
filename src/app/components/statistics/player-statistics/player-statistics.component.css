@@ -5,6 +5,8 @@ h2 {
     font-weight: 600; /* Match global heading weight */
 }
 
+/* Table wrapper styles removed - now using global .table-container */
+
 .center {
     background: linear-gradient(135deg, rgba(44, 62, 80, 0.05) 0%, rgba(39, 174, 96, 0.05) 100%); /* Palestine-themed gradient background */
     margin: auto;
@@ -38,16 +40,8 @@ select {
     transition: all 0.3s ease;
 }
 
-select:hover {
-    background: linear-gradient(135deg, #2c3e50 0%, #27ae60 100%); /* Palestine colors gradient on hover */
-    color: #fff;
-    border-color: #27ae60;
-}
-
-select:focus {
-    outline: none;
-    border-color: #27ae60; /* Green focus border */
-    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2); /* Focus shadow */
+select option {
+    color: #000;
 }
 
 .button-row {
@@ -87,13 +81,6 @@ button[type="button"]:active {
 }
 
 @media (max-width: 1000px) {
-    .styled-table {
-        min-width: 100%;
-        font-size: 0.85rem;
-        overflow-x: auto;
-        display: block;
-        width: 100%;
-    }
     .center {
         padding: 15px;
         margin: 15px;
@@ -101,11 +88,6 @@ button[type="button"]:active {
 }
 
 @media (max-width: 600px) {
-    .styled-table th,
-    .styled-table td {
-        padding: 8px 6px;
-        font-size: 0.75rem;
-    }
     h2 {
         font-size: 1.2rem;
     }

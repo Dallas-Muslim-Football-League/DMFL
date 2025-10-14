@@ -52,35 +52,127 @@ body::after {
     50% { transform: translate(-20px, -20px) rotate(1deg); }
 }
 
+.table-container {
+    position: relative;
+    overflow: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    border: 1px solid rgba(44, 62, 80, 0.1);
+    backdrop-filter: blur(10px);
+    max-height: 80vh;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(44, 62, 80, 0.3) rgba(44, 62, 80, 0.1);
+}
+
+.table-container::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: rgba(44, 62, 80, 0.05);
+    border-radius: 6px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.3) 0%, rgba(39, 174, 96, 0.3) 100%);
+    border-radius: 6px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+    transition: all 0.3s ease;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.5) 0%, rgba(39, 174, 96, 0.5) 100%);
+    background-clip: content-box;
+}
+
+.table-container::-webkit-scrollbar-corner {
+    background: rgba(44, 62, 80, 0.05);
+}
+
 .styled-table {
-    border-collapse: collapse;
-    margin: auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0;
     font-size: 0.95em;
     font-family: 'Roboto Condensed', Verdana, Geneva, Tahoma, sans-serif;
-    max-width: fit-content;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
+    width: 100%;
     background-color: #fff;
+    min-width: 800px; /* Ensure minimum width for proper column sizing */
+}
+
+.styled-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .styled-table thead tr {
-    background: linear-gradient(135deg, #2c3e50 0%, #27ae60 100%); /* Palestine colors gradient to match app theme */
+    background: linear-gradient(135deg, #2c3e50 0%, #27ae60 100%);
     color: #fff;
     text-align: center;
     font-weight: 600;
     letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .styled-table th,
 .styled-table td {
     padding: 12px 16px;
     border: none;
+    position: relative;
+}
+
+.styled-table th {
+    white-space: normal;
+    line-height: 1.2;
+    word-wrap: break-word;
+}
+
+.styled-table td {
+    white-space: nowrap;
+}
+
+.styled-table th:nth-child(1),
+.styled-table td:nth-child(1) {
+    position: sticky;
+    left: 0;
+    z-index: 50;
+    background-color: inherit;
+    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.1);
+    min-width: 120px;
+    max-width: 200px;
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 1.3;
+}
+
+.styled-table thead th:nth-child(1) {
+    z-index: 150;
+    background: linear-gradient(135deg, #2c3e50 0%, #27ae60 100%);
+    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table tbody tr td:nth-child(1) {
+    background-color: #ffffff;
+    font-weight: 500;
+}
+
+.styled-table tbody tr:nth-of-type(even) td:nth-child(1) {
+    background-color: #f8f9fa;
+}
+
+.styled-table tbody tr:hover td:nth-child(1) {
+    background-color: #e8f5e9;
+    box-shadow: 3px 0 8px rgba(39, 174, 96, 0.2);
 }
 
 .styled-table tbody tr {
+    background-color: #ffffff;
     border-bottom: 1px solid #e8e8e8;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .styled-table tbody tr:nth-of-type(even) {
@@ -88,15 +180,164 @@ body::after {
 }
 
 .styled-table tbody tr:hover {
-    background: linear-gradient(135deg, rgba(44, 62, 80, 0.1) 0%, rgba(39, 174, 96, 0.1) 100%); /* Light gradient hover effect */
+    background-color: #e8f5e9;
     transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .styled-table tbody tr.active-row {
     font-family: 'Roboto Condensed', Verdana, Geneva, Tahoma, sans-serif;
     color: #000000;
-    background: linear-gradient(135deg, rgba(44, 62, 80, 0.15) 0%, rgba(39, 174, 96, 0.15) 100%); /* Light gradient for active row */
-    font-weight: 600;
+    font-weight: normal;
+}
+
+.styled-table .highlighted {
+    background-color: rgba(39, 174, 96, 0.15) !important;
+}
+
+.styled-table tbody tr:hover .highlighted {
+    background-color: rgba(39, 174, 96, 0.25) !important;
+}
+
+@media (max-width: 1200px) {
+    .table-container {
+        max-height: 75vh;
+        margin: 0 10px;
+    }
+    
+    .styled-table {
+        font-size: 0.9rem;
+        min-width: 700px;
+    }
+    
+    .styled-table th,
+    .styled-table td {
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .table-container {
+        max-height: 70vh;
+        margin: 0 5px;
+        border-radius: 8px;
+    }
+    
+    .styled-table {
+        font-size: 0.85rem;
+        min-width: 600px;
+    }
+    
+    .styled-table th,
+    .styled-table td {
+        padding: 8px 10px;
+    }
+    
+    .styled-table th:nth-child(1),
+    .styled-table td:nth-child(1) {
+        min-width: 100px;
+        max-width: 150px;
+        white-space: normal;
+        word-wrap: break-word;
+    }
+}
+
+@media (max-width: 768px) {
+    .table-container {
+        max-height: 65vh;
+        margin: 0;
+        border-radius: 6px;
+    }
+    
+    .styled-table {
+        font-size: 0.8rem;
+        min-width: 500px;
+    }
+    
+    .styled-table th,
+    .styled-table td {
+        padding: 6px 8px;
+    }
+    
+    .styled-table th:nth-child(1),
+    .styled-table td:nth-child(1) {
+        min-width: 80px;
+        max-width: 120px;
+        box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+        white-space: normal;
+        word-wrap: break-word;
+    }
+    
+    /* Enhanced scrollbar for mobile */
+    .table-container::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    .table-container {
+        max-height: 60vh;
+    }
+    
+    .styled-table {
+        font-size: 0.75rem;
+        min-width: 450px;
+    }
+    
+    .styled-table th,
+    .styled-table td {
+        padding: 5px 6px;
+    }
+    
+    .styled-table th:nth-child(1),
+    .styled-table td:nth-child(1) {
+        min-width: 70px;
+        max-width: 100px;
+        box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1);
+        white-space: normal;
+        word-wrap: break-word;
+    }
+}
+
+@media (max-width: 480px) {
+    .table-container {
+        max-height: 55vh;
+    }
+    
+    .styled-table {
+        font-size: 0.7rem;
+        min-width: 400px;
+    }
+    
+    .styled-table th,
+    .styled-table td {
+        padding: 4px 5px;
+    }
+    
+    .styled-table th:nth-child(1),
+    .styled-table td:nth-child(1) {
+        min-width: 60px;
+        max-width: 90px;
+        white-space: normal;
+        word-wrap: break-word;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .table-container {
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: auto;
+    }
+    
+    .styled-table tbody tr:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .styled-table tbody tr:active {
+        background-color: #e8f5e9;
+    }
 }
 
 /* Add some global improvements */
@@ -148,4 +389,26 @@ button:hover {
 button:focus {
     outline: 2px solid #27ae60; /* Updated to match gradient green */
     outline-offset: 2px;
+}
+
+/* Global Palestinian flag hover effect for all select dropdowns */
+select {
+    transition: all 0.3s ease !important;
+}
+
+select:hover {
+    background: linear-gradient(135deg, 
+        rgba(206, 17, 38, 0.35) 0%, 
+        rgba(0, 0, 0, 0.25) 33%,
+        rgba(255, 255, 255, 0.3) 66%,
+        rgba(0, 115, 47, 0.45) 100%) !important; /* Palestinian flag gradient: red → black → white → green */
+    color: #2c3e50 !important;
+    box-shadow: 0 0 0 3px rgba(0, 115, 47, 0.4), 0 4px 12px rgba(206, 17, 38, 0.35) !important;
+    cursor: pointer !important;
+}
+
+select:focus {
+    outline: none !important;
+    border-color: #27ae60 !important; /* Green focus border */
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2) !important; /* Focus shadow */
 }

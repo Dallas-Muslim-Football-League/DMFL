@@ -46,6 +46,24 @@ export class PlayerStatisticsComponent implements OnInit {
     });
   }
 
+  isHighlightedColumn(columnName: string): boolean {
+    const highlightMap: { [key: string]: string[] } = {
+      passing: ['PAS TD', 'PAS YDS', 'INT THRN'],
+      receiving: ['REC', 'REC TD', 'REC YDS'],
+      defense: [
+        'DEF TD',
+        'DEF INT',
+        'FLAG PULLS',
+        'PASS BKUPS',
+        'SACK',
+        'SFTY',
+      ],
+    };
+
+    const columnsToHighlight = highlightMap[this.selectedCategory] || [];
+    return columnsToHighlight.includes(columnName);
+  }
+
   goBack(): void {
     this.location.back();
   }
