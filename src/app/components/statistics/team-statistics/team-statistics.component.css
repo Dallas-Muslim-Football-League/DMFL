@@ -38,17 +38,6 @@ select {
     transition: all 0.3s ease;
 }
 
-select:hover {
-    background: linear-gradient(135deg, #2c3e50 0%, #27ae60 100%); /* Palestine colors gradient on hover */
-    color: #fff;
-    border-color: #27ae60;
-}
-
-select:focus {
-    outline: none;
-    border-color: #27ae60; /* Green focus border */
-    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2); /* Focus shadow */
-}
 
 .button-row {
     text-align: left;
