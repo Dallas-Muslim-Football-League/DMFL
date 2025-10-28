@@ -48,7 +48,6 @@ export class GameDetailsComponent implements OnInit {
     const gameId = Number(this.route.snapshot.paramMap.get('id'));
     this.gameService.getGameById(gameId).subscribe({
       next: (game) => {
-        game.videoHighlightUrl = "https://www.youtube.com/watch?v=1Cj0J1gkiGo";
         this.game = game;
         this.setVideoEmbedUrl(this.game.videoHighlightUrl);
         console.log('Game details:', game);
