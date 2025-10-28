@@ -57,7 +57,7 @@ export class GameDetailsComponent implements OnInit {
         // 1. Set this.game and video URL immediately after receiving details
         tap(gameDetails => {
             this.game = gameDetails;
-            this.setVideoEmbedUrl(this.game.videoHighlightUrl);
+            this.setVideoEmbedUrl(this.game.videoHighlightUrl, this.game.videoStartTimeInSeconds);
         }),
         
         // 2. Use switchMap to wait for step 1, then switch to loading stats
@@ -123,7 +123,7 @@ export class GameDetailsComponent implements OnInit {
   }
 
   // Helper function to safely convert the raw URL string into a trusted resource for the iframe
-  setVideoEmbedUrl(url: string | null): void {
+  setVideoEmbedUrl(url: string | null, startTimeInSeconds: number | null): void {
     if (url && url.length > 0) {
       // 1. Extract the YouTube video ID
       // This logic is simplified; robust regex is often used here.
@@ -131,7 +131,7 @@ export class GameDetailsComponent implements OnInit {
       
       if (videoId) {
           // 2. Format it as an embeddable URL
-          const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+          const embedUrl = `https://www.youtube.com/embed/${videoId}?start=${startTimeInSeconds}`;
           
           // 3. Trust the URL to bypass Angular's XSS security
           this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
