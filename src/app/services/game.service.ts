@@ -1,28 +1,20 @@
 import { Injectable } from '@angular/core';
-import { NewsItem } from '../models/news-item';
 import { catchError, Observable, retry, throwError } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Game } from '../models/game';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NewsService {
+export class GameService {
 
-  private newsUrl = environment.backend_url + '/news';
+  private gamesUrl = environment.backend_url + '/games';
 
   constructor(private http: HttpClient) { }
 
-  // Http Options
-  private httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-    }),
-  };
-
-  /** GET news for the current season or off-season */
-  getNews(): Observable<NewsItem[]> {
-    return this.http.get<NewsItem[]>(this.newsUrl, this.httpOptions)
+  getGameById(id: number): Observable<Game> {
+    return this.http.get<Game>(`${this.gamesUrl}/${id}`)
       .pipe(retry(1), catchError(this.handleError));
   }
 
@@ -32,5 +24,4 @@ export class NewsService {
     console.error(errorMessage);
     return throwError(() => new Error(errorMessage));
   }
-
 }

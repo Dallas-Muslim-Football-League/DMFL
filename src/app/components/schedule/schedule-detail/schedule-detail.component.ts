@@ -3,7 +3,7 @@ import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { Schedule } from 'src/app/models/schedule';
-import { OrderByPipe } from 'src/app/order-by.pipe';
+import { OrderByPipe } from 'src/app/pipes/order-by.pipe';
 import { ScheduleService } from 'src/app/services/schedule.service';
 
 @Component({

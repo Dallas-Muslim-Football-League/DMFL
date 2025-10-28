@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { PlayerStatistics } from '../models/player-statistics';
 import { TeamStatistics } from '../models/team-statistics';
+import { PlayerStatsWithTeamResponse } from '../dto/player-stats-with-team-response';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,13 @@ export class StatisticService {
 
   getTeamStatistics(): Observable<TeamStatistics[]> {
     return this.http.get<TeamStatistics[]>(this.url + '/teams');
+  }
+
+  getPlayerStatsByGameId(gameId: number): Observable<PlayerStatsWithTeamResponse[]> {
+    return this.http.get<PlayerStatsWithTeamResponse[]>(`${this.url}/players/${gameId}`);
+  }
+
+  getTeamStatsByGameId(gameId: number): Observable<TeamStatistics[]> {
+    return this.http.get<TeamStatistics[]>(`${this.url}/teams/${gameId}`);
   }
 }

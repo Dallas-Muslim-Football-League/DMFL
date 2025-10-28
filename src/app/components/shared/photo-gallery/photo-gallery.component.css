@@ -10,7 +10,7 @@
 .gallery-wrapper {
   padding: 1.25rem;
   border-radius: 12px;
-  background: var(--container-bg);
+  background: var(--section-bg);
   border: 1px solid var(--card-border);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);

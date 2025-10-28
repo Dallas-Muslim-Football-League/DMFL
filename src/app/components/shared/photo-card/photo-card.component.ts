@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { LocalPhoto } from 'src/app/models/local-photo';
+import { Photo } from 'src/app/models/photo';
 
 @Component({
   selector: 'app-photo-card',
@@ -12,12 +12,10 @@ import { LocalPhoto } from 'src/app/models/local-photo';
 })
 export class PhotoCardComponent {
   // Input to receive the specific photo's data (filename and caption)
-  @Input() photo!: LocalPhoto;
-  // Input to receive the base path to the images folder
-  @Input() imageDir!: string;
+  @Input() photo!: Photo;
 
   // Output to notify the parent component that this card was clicked
-  @Output() cardClicked = new EventEmitter<LocalPhoto>();
+  @Output() cardClicked = new EventEmitter<Photo>();
 
   // This function is called by the (click) event in the template
   onCardClick(): void {

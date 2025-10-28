@@ -15,6 +15,9 @@ import { NewsCardComponent } from '../../shared/news-card/news-card.component';
 })
 export class NewsComponent implements OnInit {
   newsItems: NewsItem[] = [];
+  maxItemsToShow: number = 3; 
+  showFullList: boolean = false; 
+  currentLimit: number = this.maxItemsToShow; // Starts at 3
 
   constructor(private newsService: NewsService) {}
   ngOnInit(): void {
@@ -26,5 +29,12 @@ export class NewsComponent implements OnInit {
         console.error('Error fetching news', err);
       }
     });
+  }
+
+  toggleView() {
+    this.showFullList = !this.showFullList;
+    
+    // Toggle the limit based on the current state
+    this.currentLimit = this.showFullList ? this.newsItems.length : this.maxItemsToShow;
   }
 }
