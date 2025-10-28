@@ -2,6 +2,9 @@ import { CommonModule, Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+// Import RxJS operators for chaining
+import { forkJoin } from 'rxjs';
+import { switchMap, tap } from 'rxjs/operators';
 import { PlayerStatsWithTeamResponse } from 'src/app/dto/player-stats-with-team-response';
 import { Game } from 'src/app/models/game';
 import { Statistic } from 'src/app/models/statistics';
@@ -39,65 +42,79 @@ export class GameDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loadGameDetails();
-    this.loadTeamStats();
-    this.loadPlayerStats();
+    // Call the single chained function to load all data sequentially
+    this.loadGameData();
   }
-
-  loadGameDetails(): void {
+  
+  /**
+   * Loads game details first, then concurrently loads team and player stats.
+   * This eliminates the race condition where stats might arrive before this.game is set.
+   */
+  loadGameData(): void {
     const gameId = Number(this.route.snapshot.paramMap.get('id'));
-    this.gameService.getGameById(gameId).subscribe({
-      next: (game) => {
-        this.game = game;
-        this.setVideoEmbedUrl(this.game.videoHighlightUrl);
-        console.log('Game details:', game);
-      },
-      error: (error) => {
-        console.error('Error fetching game details:', error);
-      }
-    });
-  }
 
-  loadTeamStats(): void {
-    const gameId = Number(this.route.snapshot.paramMap.get('id'));
-    this.statisticService.getTeamStatsByGameId(gameId).subscribe({
-      next: (teamStats) => {
-        for (let stat of teamStats) {
-          if (this.game) {
-            if (stat.team.id === this.game.homeTeam?.id) {
-              this.homeTeamStats.push(stat);
-            } else if (stat.team.id === this.game.awayTeam?.id) {
-              this.awayTeamStats.push(stat);
+    this.gameService.getGameById(gameId).pipe(
+        // 1. Set this.game and video URL immediately after receiving details
+        tap(gameDetails => {
+            this.game = gameDetails;
+            this.setVideoEmbedUrl(this.game.videoHighlightUrl);
+        }),
+        
+        // 2. Use switchMap to wait for step 1, then switch to loading stats
+        switchMap(() => {
+            // Check if game details were successfully set
+            if (!this.game) {
+                throw new Error('Game details could not be loaded.');
             }
-          }
+
+            // Launch team stats and player stats concurrently using forkJoin
+            const teamStats$ = this.statisticService.getTeamStatsByGameId(gameId);
+            const playerStats$ = this.statisticService.getPlayerStatsByGameId(gameId);
+
+            return forkJoin([teamStats$, playerStats$]);
+        })
+    ).subscribe({
+        // 3. This 'next' executes only after all three APIs have succeeded
+        next: ([teamStats, playerStats]) => {
+            // Process the received data
+            this.processTeamStats(teamStats);
+            this.playerStats = playerStats;
+        },
+        error: (error) => {
+            console.error('Error loading game data:', error);
         }
-        console.log('Team stats:', teamStats);
-      },
-      error: (error) => {
-        console.error('Error fetching team stats:', error);
-      }
     });
   }
 
-  loadPlayerStats(): void {
-    const gameId = Number(this.route.snapshot.paramMap.get('id'));
-    this.statisticService.getPlayerStatsByGameId(gameId).subscribe({
-      next: (playerStats) => {
-        this.playerStats = playerStats;
-        console.log('Player stats:', playerStats);
-      },
-      error: (error) => {
-        console.error('Error fetching player stats:', error);
+  /**
+   * Helper function to process team statistics and assign them to home/away arrays.
+   * @param teamStats The array of TeamStatistics returned from the API.
+   */
+  processTeamStats(teamStats: TeamStatistics[]): void {
+      // Clear arrays before population
+      this.homeTeamStats = [];
+      this.awayTeamStats = [];
+
+      // this.game is guaranteed to be defined here due to the switchMap chain
+      if (this.game) {
+          for (let stat of teamStats) {
+              if (stat.team.id === this.game.homeTeam?.id) {
+                  this.homeTeamStats.push(stat);
+              } else if (stat.team.id === this.game.awayTeam?.id) {
+                  this.awayTeamStats.push(stat);
+              }
+          }
       }
-    });
   }
 
+  // NOTE: loadGameDetails, loadTeamStats, and loadPlayerStats were removed 
+  // as their logic is now integrated into loadGameData()
+  
   selectTab(tabId: string): void {
     this.activeTab = tabId;
   }
 
   selectTeamTab(team: string): void {
-    // Allows setting the internal tab state based on 'home' or 'away'
     this.activeTeamTab = team;
   }
   

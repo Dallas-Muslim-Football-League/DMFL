@@ -20,8 +20,6 @@ export class FilterByTeamPipe implements PipeTransform {
     teamType: 'home' | 'away', 
     game: Game | null | undefined
   ): PlayerStatsWithTeamResponse[] {
-
-    console.log('FilterByTeamPipe called with teamType:', teamType, 'game:', game, 'stats:', stats);
     
     // 1. Handle null or empty inputs gracefully
     if (!stats || !game) {

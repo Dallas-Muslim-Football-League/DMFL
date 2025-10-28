@@ -22,6 +22,6 @@ export class GameService {
   private handleError(error: any) {
     let errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     console.error(errorMessage);
-    return throwError(() => new Error('Something bad happened; please try again later.'));
+    return throwError(() => new Error(errorMessage));
   }
 }
