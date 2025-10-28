@@ -10,4 +10,5 @@ export interface Game {
     pointInGame: string,
     isPlayoff: boolean;
     videoHighlightUrl: string | null;
+    videoStartTimeInSeconds: number | null;
 }
