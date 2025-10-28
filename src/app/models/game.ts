@@ -9,4 +9,5 @@ export interface Game {
     date: Date,
     pointInGame: string,
     isPlayoff: boolean;
+    videoHighlightUrl: string | null;
 }

@@ -1,0 +1,224 @@
+/* Step 1: The Outer Card and Centering */
+h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    color: var(--header-color);
+}
+
+.game-details-tabs { 
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.05) 0%, rgba(39, 174, 96, 0.05) 100%); /* Palestine-themed gradient background */
+    margin: auto;
+    max-width: fit-content;
+    min-width: 800px; 
+    margin-top: 25px;
+    padding: 20px;
+    padding-top: 15px;
+    text-align: center;
+    overflow: auto;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: 1px solid rgba(44, 62, 80, 0.1); /* Subtle border */
+    backdrop-filter: blur(10px); /* Modern glass effect */
+    transition: all 0.3s ease;
+    
+    /* ADDED FOR MOBILE SAFETY: */
+    width: 100%; 
+}
+
+.tab-headers button {
+    /* MODIFIED: Default to content size (no stretching) */
+    flex: 0 1 auto; 
+    max-width: 300px; /* Keep max-width for overall control */
+    
+    padding: 0.75rem 1.5rem;
+    margin: 0 0.25rem;
+}
+
+.tab-headers:not(.single-tab) button {
+    flex: 1; /* Enables equal stretch for all three buttons when present */
+}
+
+.tab-headers {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.score-matchup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.team-score {
+    /* Use Flexbox to manage the score and team name within this div */
+    display: flex;
+    
+    /* CRITICAL: Set the direction to stack items vertically */
+    flex-direction: column; 
+    
+    /* Center the stacked text (Score and Name) horizontally */
+    align-items: center;
+    
+    /* Ensure the stack takes up predictable horizontal space */
+    min-width: 120px;
+}
+
+.score-value {
+    /* Make the score the largest and boldest element */
+    font-size: 2.8rem; 
+    font-weight: 900;
+    line-height: 1.1; /* Keeps the score close to the name below it */
+    color: var(--score-color, #000);
+}
+
+.team-name {
+    /* Smaller font for the name */
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--muted-text, #666);
+    line-height: 1.2;
+}
+
+.score-separator {
+    font-size: 2.5rem;
+    font-weight: 200;
+    margin: 0 1.5rem; /* Space the dash out from the stacks */
+    color: var(--separator-color, #aaa);
+}
+
+.vs-separator {
+    margin: 0 0.5rem;
+    font-weight: 600;
+    color: var(--muted-text, #666);
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.team-toggle-headers {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem; /* MODIFIED: Increased spacing below buttons */
+
+}
+
+.team-toggle-headers button {
+    flex: 1; 
+    /* NEW: Cap the growth so buttons don't stretch across the entire page */
+    max-width: 300px;
+    
+    padding: 0.75rem 1.5rem;
+    margin: 0 0.25rem;
+}
+
+/* ------------------------------------------- */
+/* --- MEDIA QUERIES --- */
+/* ------------------------------------------- */
+
+/* Tablet and large mobile screens */
+@media (max-width: 1000px) {
+    .game-details-tabs {
+        padding: 15px;
+        margin: 15px auto;
+        /* Ensure min-width doesn't apply too far down */
+        min-width: 0;
+    }
+    
+    .tab-headers button {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .score-matchup {
+        margin-bottom: 1.5rem;
+    }
+
+    .team-score {
+        min-width: 100px;
+    }
+
+    .score-value {
+        font-size: 2.2rem;
+    }
+
+    .team-name {
+        font-size: 1rem;
+    }
+
+    .score-separator {
+        font-size: 2rem;
+        margin: 0 1rem;
+    }
+
+    .video-container {
+        margin-bottom: 1.5rem;
+    }
+    
+    .team-toggle-headers button {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+        /* Adjust max-width for tablet views */
+        max-width: 250px; 
+    }
+}
+
+/* Mobile phone screens */
+@media (max-width: 600px) {
+    .game-details-tabs {
+        /* CRITICAL FIX: Override max-width: fit-content for mobile */
+        max-width: 100%;
+        width: calc(100% - 20px); /* Account for 10px margin on each side */
+        margin: 10px auto;
+        padding: 10px;
+        padding-top: 8px;
+    }
+
+    .tab-headers button {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .score-matchup {
+        margin-bottom: 1rem;
+    }
+
+    .team-score {
+        min-width: 80px;
+    }
+
+    .score-value {
+        font-size: 1.8rem;
+    }
+
+    .team-name {
+        font-size: 0.9rem;
+    }
+
+    .score-separator {
+        font-size: 1.8rem;
+        margin: 0 0.8rem;
+    }
+
+    .video-container {
+        margin-bottom: 1rem;
+    }
+    
+    .team-toggle-headers button {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+        
+        /* Ensures button text wraps to prevent horizontal overflow */
+        flex: 1; /* Ensure equal size */
+        flex-shrink: 1;
+        min-width: 0;
+        white-space: normal;
+        word-wrap: break-word;
+        max-width: none; /* Allows full stretch on mobile, enabling wrap */
+    }
+}

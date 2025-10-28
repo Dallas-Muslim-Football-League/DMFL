@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { NewsItem } from '../models/news-item';
 import { catchError, Observable, retry, throwError } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Photo } from '../models/photo';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NewsService {
+export class PhotoService {
 
-  private newsUrl = environment.backend_url + '/news';
+  private photoGalleryUrl = environment.backend_url + '/photo-gallery';
 
   constructor(private http: HttpClient) { }
 
@@ -20,9 +20,9 @@ export class NewsService {
     }),
   };
 
-  /** GET news for the current season or off-season */
-  getNews(): Observable<NewsItem[]> {
-    return this.http.get<NewsItem[]>(this.newsUrl, this.httpOptions)
+  /** GET photos for the current season or off-season */
+  getPhotos(): Observable<Photo[]> {
+    return this.http.get<Photo[]>(this.photoGalleryUrl, this.httpOptions)
       .pipe(retry(1), catchError(this.handleError));
   }
 
@@ -32,5 +32,4 @@ export class NewsService {
     console.error(errorMessage);
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }
-
 }

@@ -1,4 +1,4 @@
 <div class="photo-card-container" (click)="onCardClick()">
-  <img [src]="imageDir + photo.filename" [alt]="photo.caption">
+  <img [src]="photo.imageUrl" [alt]="photo.caption">
   <p class="photo-caption">{{ photo.caption }}</p>
 </div>

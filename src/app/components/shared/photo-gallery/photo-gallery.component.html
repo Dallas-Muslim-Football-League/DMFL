@@ -5,7 +5,6 @@
     <app-photo-card 
       *ngFor="let photo of photos"
       [photo]="photo"
-      [imageDir]="imageDir"
       (cardClicked)="openModal($event)">
     </app-photo-card>
   </div>

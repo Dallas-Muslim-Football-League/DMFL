@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Team } from '../../models/team';
 import { TeamService } from '../../services/team.service';
 import { Router, RouterModule } from '@angular/router';
-import { OrderByPipe } from 'src/app/order-by.pipe';
+import { OrderByPipe } from 'src/app/pipes/order-by.pipe';
 
 @Component({
     selector: 'app-teams',

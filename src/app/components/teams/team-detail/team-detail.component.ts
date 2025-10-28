@@ -5,7 +5,7 @@ import { Team } from '../../../models/team';
 import { TeamService } from '../../../services/team.service';
 import { environment } from 'src/environments/environment';
 import { Membership } from 'src/app/models/membership';
-import { OrderByPipe } from 'src/app/order-by.pipe';
+import { OrderByPipe } from 'src/app/pipes/order-by.pipe';
 
 @Component({
     selector: 'app-team-detail',

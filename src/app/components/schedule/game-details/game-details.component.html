@@ -1,1 +1,246 @@
-<p>Game Details Coming Soon Inshallah</p>
+<div class="game-details-tabs">
+    <div class="tab-headers">
+        <button [class.active]="activeTab === 'overview'" (click)="activeTab = 'overview'">Overview</button>
+        <ng-container *ngIf="game?.pointInGame?.toLowerCase() === 'final'">
+            <button 
+                [class.active]="activeTab === 'player'" 
+                (click)="activeTab = 'player'">
+                Player Stats
+            </button>
+            <button 
+                [class.active]="activeTab === 'team'" 
+                (click)="activeTab = 'team'">
+                Team Stats
+            </button>
+        </ng-container>
+    </div>
+    <div *ngIf="activeTab === 'overview'">
+        <section class="score-matchup">
+
+            <ng-container *ngIf="game?.pointInGame?.toLowerCase() === 'final'; else scheduleView">
+                <section class="team-score">
+                    <span class="team-name">{{ game?.homeTeam?.name }}</span>
+                    <span class="score-value">{{ game?.homeScore }}</span>
+                </section>
+            
+                <span class="score-separator">-</span>
+            
+                <section class="team-score">
+                    <span class="team-name">{{ game?.awayTeam?.name }}</span>
+                    <span class="score-value">{{ game?.awayScore }}</span>
+                </section>
+            </ng-container>
+
+            <ng-template #scheduleView>
+                <section class="game-schedule">
+                    <section class="team-schedule">
+                        <span class="team-name">{{ game?.homeTeam?.name }}</span>
+                        <span class="vs-separator">VS</span>
+                        <span class="team-name">{{ game?.awayTeam?.name }}</span>
+                    </section>
+                    <h3 class="schedule-date">{{ game?.date }}</h3>
+                </section>
+            </ng-template>
+
+        </section>
+
+        <section class="video-container" *ngIf="safeVideoUrl">
+            <iframe 
+                [src]="safeVideoUrl" 
+                title="Game Highlight Video" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </section>
+    </div>
+
+    <div *ngIf="activeTab === 'player'">
+        
+        <div class="team-toggle-headers">
+            <button [class.active]="activeTeamTab === 'home'" (click)="selectTeamTab('home')">
+                {{ game?.homeTeam?.name }} 
+            </button>
+            <button [class.active]="activeTeamTab === 'away'" (click)="selectTeamTab('away')">
+                {{ game?.awayTeam?.name }}
+            </button>
+        </div>
+
+        <div class="team-toggle-content">
+            <div *ngIf="activeTeamTab === 'home'">
+                <div class="table-container">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Rec</th>
+                                <th>Rec Yds</th>
+                                <th>Rec TDs</th>
+                                <th>Pass Yds</th>
+                                <th>Pass TDs</th>
+                                <th>INT Thrown</th>
+                                <th>Rush Yds</th>
+                                <th>Rush TDs</th>
+                                <th>Def Int</th>
+                                <th>Flag Pulls</th>
+                                <th>Sacks</th>
+                                <th>Safeties</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let stat of playerStats | filterByTeam:'home':game">
+                                <td>{{ stat?.playerStatistics?.player?.number }}</td>
+                                <td>{{ stat?.playerStatistics?.player?.firstName }} {{ stat?.playerStatistics?.player?.lastName }}</td>
+                                <td>{{ stat?.playerStatistics?.receptions }}</td>
+                                <td>{{ stat?.playerStatistics?.receivingYards }}</td>
+                                <td>{{ stat?.playerStatistics?.receivingTouchdowns }}</td>
+                                <td>{{ stat?.playerStatistics?.passingYards }}</td>
+                                <td>{{ stat?.playerStatistics?.passingTouchdowns }}</td>
+                                <td>{{ stat?.playerStatistics?.rushingYards }}</td>
+                                <td>{{ stat?.playerStatistics?.rushingTouchdowns }}</td>
+                                <td>{{ stat?.playerStatistics?.interceptionsThrown }}</td>
+                                <td>{{ stat?.playerStatistics?.defensiveInterceptions }}</td>
+                                <td>{{ stat?.playerStatistics?.flagPulls }}</td>
+                                <td>{{ stat?.playerStatistics?.sacks }}</td>
+                                <td>{{ stat?.playerStatistics?.safeties }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div *ngIf="activeTeamTab === 'away'">
+                <div class="table-container">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Rec</th>
+                                <th>Rec Yds</th>
+                                <th>Rec TDs</th>
+                                <th>Pass Yds</th>
+                                <th>Pass TDs</th>
+                                <th>INT Thrown</th>
+                                <th>Rush Yds</th>
+                                <th>Rush TDs</th>
+                                <th>Def Int</th>
+                                <th>Flag Pulls</th>
+                                <th>Sacks</th>
+                                <th>Safeties</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let stat of playerStats | filterByTeam:'away':game">
+                                <td>{{ stat?.playerStatistics?.player?.number }}</td>
+                                <td>{{ stat?.playerStatistics?.player?.firstName }} {{ stat?.playerStatistics?.player?.lastName }}</td>
+                                <td>{{ stat?.playerStatistics?.receptions }}</td>
+                                <td>{{ stat?.playerStatistics?.receivingYards }}</td>
+                                <td>{{ stat?.playerStatistics?.receivingTouchdowns }}</td>
+                                <td>{{ stat?.playerStatistics?.passingYards }}</td>
+                                <td>{{ stat?.playerStatistics?.passingTouchdowns }}</td>
+                                <td>{{ stat?.playerStatistics?.rushingYards }}</td>
+                                <td>{{ stat?.playerStatistics?.rushingTouchdowns }}</td>
+                                <td>{{ stat?.playerStatistics?.interceptionsThrown }}</td>
+                                <td>{{ stat?.playerStatistics?.defensiveInterceptions }}</td>
+                                <td>{{ stat?.playerStatistics?.flagPulls }}</td>
+                                <td>{{ stat?.playerStatistics?.sacks }}</td>
+                                <td>{{ stat?.playerStatistics?.safeties }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="activeTab === 'team'">
+
+        <div class="team-toggle-headers">
+            <button [class.active]="activeTeamTab === 'home'" (click)="selectTeamTab('home')">
+                {{ game?.homeTeam?.name }}
+            </button>
+            <button [class.active]="activeTeamTab === 'away'" (click)="selectTeamTab('away')">
+                {{ game?.awayTeam?.name }}
+            </button>
+        </div>
+
+        <div class="team-toggle-content">
+            <div *ngIf="activeTeamTab === 'home'">
+                <div class="table-container">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Rec</th>
+                                <th>Rec Yds</th>
+                                <th>Rec TDs</th>
+                                <th>Pass Yds</th>
+                                <th>Pass TDs</th>
+                                <th>INT Thrown</th>
+                                <th>Rush Yds</th>
+                                <th>Rush TDs</th>
+                                <th>Def Int</th>
+                                <th>Flag Pulls</th>
+                                <th>Sacks</th>
+                                <th>Safeties</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let stat of homeTeamStats">
+                                <td>{{ stat.receptions }}</td>
+                                <td>{{ stat.receivingYards }}</td>
+                                <td>{{ stat.receivingTouchdowns }}</td>
+                                <td>{{ stat.passingYards }}</td>
+                                <td>{{ stat.passingTouchdowns }}</td>
+                                <td>{{ stat.interceptionsThrown }}</td>
+                                <td>{{ stat.rushingYards }}</td>
+                                <td>{{ stat.rushingTouchdowns }}</td>
+                                <td>{{ stat.defensiveInterceptions }}</td>
+                                <td>{{ stat.flagPulls }}</td>
+                                <td>{{ stat.sacks }}</td>
+                                <td>{{ stat.safeties }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div *ngIf="activeTeamTab === 'away'">
+                <div class="table-container">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Rec</th>
+                                <th>Rec Yds</th>
+                                <th>Rec TDs</th>
+                                <th>Pass Yds</th>
+                                <th>Pass TDs</th>
+                                <th>INT Thrown</th>
+                                <th>Rush Yds</th>
+                                <th>Rush TDs</th>
+                                <th>Def Int</th>
+                                <th>Flag Pulls</th>
+                                <th>Sacks</th>
+                                <th>Safeties</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let stat of awayTeamStats">
+                                <td>{{ stat.receptions }}</td>
+                                <td>{{ stat.receivingYards }}</td>
+                                <td>{{ stat.receivingTouchdowns }}</td>
+                                <td>{{ stat.passingYards }}</td>
+                                <td>{{ stat.passingTouchdowns }}</td>
+                                <td>{{ stat.interceptionsThrown }}</td>
+                                <td>{{ stat.rushingYards }}</td>
+                                <td>{{ stat.rushingTouchdowns }}</td>
+                                <td>{{ stat.defensiveInterceptions }}</td>
+                                <td>{{ stat.flagPulls }}</td>
+                                <td>{{ stat.sacks }}</td>
+                                <td>{{ stat.safeties }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

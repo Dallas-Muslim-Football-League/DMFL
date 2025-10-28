@@ -19,6 +19,18 @@
   min-height: 300px;
   display: flex;
   flex-direction: column;
+
+  /* === NEW CSS FOR SCROLLING === */
+  
+  /* 1. SET A FIXED HEIGHT: This is the height of your 3 cards + the gap between them.
+     You MUST calculate this value based on the rendered height of the three <app-news-card> elements. */
+  max-height: 500px; /* <--- ADJUST THIS VALUE BASED ON 3 CARDS + GAPS */
+  
+  /* 2. ENABLE VERTICAL SCROLLING: This tells the browser to show a scroll bar when content exceeds max-height. */
+  overflow-y: auto; 
+  
+  /* 3. OPTIONAL: Prevents horizontal scroll bars */
+  overflow-x: hidden;
 }
 
 h2 {

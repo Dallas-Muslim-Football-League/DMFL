@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Schedule } from 'src/app/models/schedule';
 import { ScheduleService } from 'src/app/services/schedule.service';
 import { FormsModule } from '@angular/forms';
-import { OrderByPipe } from 'src/app/order-by.pipe';
 import { RouterModule } from '@angular/router';
+import { OrderByPipe } from 'src/app/pipes/order-by.pipe';
 
 @Component({
     selector: 'app-schedule',
