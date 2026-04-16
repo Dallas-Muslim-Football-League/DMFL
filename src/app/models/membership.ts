@@ -5,6 +5,7 @@ import { Team } from "./team";
 export interface Membership {
     id: number,
     player: Player,
+    playerNumber: number,
     team: Team,
     season: Season,
     isActive: boolean,

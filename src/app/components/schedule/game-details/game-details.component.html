@@ -90,7 +90,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let stat of playerStats | filterByTeam:'home':game">
-                                <td>{{ stat?.playerStatistics?.player?.number }}</td>
+                                <td>{{ stat?.playerNumber }}</td>
                                 <td>{{ stat?.playerStatistics?.player?.firstName }} {{ stat?.playerStatistics?.player?.lastName }}</td>
                                 <td>{{ stat?.playerStatistics?.receptions }}</td>
                                 <td>{{ stat?.playerStatistics?.receivingYards }}</td>
@@ -134,7 +134,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let stat of playerStats | filterByTeam:'away':game">
-                                <td>{{ stat?.playerStatistics?.player?.number }}</td>
+                                <td>{{ stat?.playerNumber }}</td>
                                 <td>{{ stat?.playerStatistics?.player?.firstName }} {{ stat?.playerStatistics?.player?.lastName }}</td>
                                 <td>{{ stat?.playerStatistics?.receptions }}</td>
                                 <td>{{ stat?.playerStatistics?.receivingYards }}</td>
