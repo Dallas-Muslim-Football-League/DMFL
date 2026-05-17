@@ -9,6 +9,7 @@ import { GameDetailsComponent } from './components/schedule/game-details/game-de
 import { PlayerStatisticsComponent } from './components/statistics/player-statistics/player-statistics.component';
 import { TeamStatisticsComponent } from './components/statistics/team-statistics/team-statistics.component';
 import { AboutComponent } from './components/about/about.component';
+import { NewsDetailComponent } from './components/home/news/news-detail/news-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'stats/player', component: PlayerStatisticsComponent},
   { path: 'stats/team', component: TeamStatisticsComponent},
   { path: 'schedule/games/detail/:id', component: GameDetailsComponent},
-  { path: 'about', component: AboutComponent}
+  { path: 'about', component: AboutComponent},
+  { path: 'news/:id', component: NewsDetailComponent}
 ];
 
 @NgModule({

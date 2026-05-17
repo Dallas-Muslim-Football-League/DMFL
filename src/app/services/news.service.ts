@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NewsItem } from '../models/news-item';
-import { catchError, Observable, retry, throwError } from 'rxjs';
+import { catchError, map, Observable, retry, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
@@ -24,6 +24,17 @@ export class NewsService {
   getNews(): Observable<NewsItem[]> {
     return this.http.get<NewsItem[]>(this.newsUrl, this.httpOptions)
       .pipe(retry(1), catchError(this.handleError));
+  }
+
+  /** GET a single news article by id (filters from the list since /news/:id is not a backend endpoint) */
+  getNewsById(id: number): Observable<NewsItem> {
+    return this.getNews().pipe(
+      map(articles => {
+        const article = articles.find(a => a.id === id);
+        if (!article) throw new Error(`Article ${id} not found`);
+        return article;
+      })
+    );
   }
 
   // Error handling

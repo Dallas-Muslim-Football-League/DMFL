@@ -10,7 +10,7 @@
     </div>
 
     <div class="toggle-view-container" *ngIf="newsItems.length > maxItemsToShow">
-      <button (click)="toggleView()">
+      <button class="primary" (click)="toggleView()">
         {{ showFullList ? 'Show Less' : 'Show All (' + newsItems.length + ')' }}
       </button>
     </div>

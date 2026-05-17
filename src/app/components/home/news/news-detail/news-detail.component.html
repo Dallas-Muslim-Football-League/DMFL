@@ -1,0 +1,22 @@
+<div class="detail-wrapper">
+
+  <div *ngIf="loading" class="state-message">Loading article...</div>
+  <div *ngIf="error" class="state-message error">Could not load the article.</div>
+
+  <article *ngIf="article" class="article">
+    <button class="back-btn" (click)="goBack()">← Back</button>
+
+    <img class="hero-image" [src]="article.imageUrl" [alt]="article.title">
+
+    <div class="article-body">
+      <h1>{{ article.title }}</h1>
+      <p class="meta">
+        <span class="author">{{ article.author }}</span>
+        <span class="dot">·</span>
+        <span class="date">{{ article.datePosted | date:'MMMM d, y' }}</span>
+      </p>
+      <div class="content">{{ article.content }}</div>
+    </div>
+  </article>
+
+</div>

@@ -5,7 +5,7 @@ export interface NewsItem {
   title: string;
   content: string;
   imageUrl: string;
-  datePublished: Date;
+  datePosted: Date;
   author: string;
   season: Season;
 }

@@ -1,10 +1,11 @@
-<article class="news-card-container">
+<article class="news-card-container" [routerLink]="['/news', item.id]">
 
   <img class="news-image" [src]="item.imageUrl" [alt]="item.title">
   <div class="news-content">
     <h3>{{ item.title }}</h3>
-    <p class="news-date">{{ item.datePublished }}</p>
+    <p class="news-date">{{ item.datePosted | date:'MMMM d, y' }}</p>
     <p class="news-summary">{{ item.content }}</p>
-    <a href="#" class="read-more">Read More</a>
+    <a class="read-more" [routerLink]="['/news', item.id]">Read More</a>
   </div>
+
 </article>
